@@ -1,0 +1,249 @@
+.flex {
+  box-sizing: border-box;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    max-width: #{$layout-max-width}px;
+    margin: 0 auto;
+    padding-left: #{$layout-gutter}px;
+    padding-right: #{$layout-gutter}px;
+    &--fluid {
+      max-width: 100%;
+    }
+    &--nogutter {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &--debug {
+      background: transparentize($layout-color-debug-container, .8);
+      border: dashed 1px transparentize($layout-color-debug-container, .6);
+    }
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 #{$layout-gutter}px;
+    &--reset {
+      padding: 0;
+      list-style: none;
+    }
+    &--reverse {
+      flex-direction: row-reverse;
+    }
+    &--align-stretch {
+      align-items: stretch;
+    }
+    &--align-start {
+      align-items: flex-start;
+    }
+    &--align-end {
+      align-items: flex-end;
+    }
+    &--align-center {
+      align-items: center;
+    }
+    &--align-baseline {
+      align-items: baseline;
+    }
+    &--justify-start {
+      justify-content: flex-start;
+    }
+    &--justify-end {
+      justify-content: flex-end;
+    }
+    &--justify-center {
+      justify-content: center;
+    }
+    &--justify-between {
+      justify-content: space-between;
+    }
+    &--justify-around {
+      justify-content: space-around;
+    }
+    &--justify-evenly {
+      justify-content: space-evenly;
+    }
+    &--justify-initial {
+      justify-content: initial;
+    }
+    &--justify-inherit {
+      justify-content: inherit;
+    }
+    &--grow {
+      flex-grow: 1;
+    }
+    &--nowrap {
+      flex-wrap: nowrap;
+    }
+    &--nogutter {
+      margin: 0
+    }
+    &--debug {
+      background: transparentize($layout-color-debug-row, .8);
+      border: dashed 1px transparentize($layout-color-debug-row, .6);
+    }
+  }
+
+  &__col {
+    flex-direction: column;
+    flex: 1;
+    padding-left: #{$layout-gutter/2}px;
+    padding-right: #{$layout-gutter/2}px;
+    &--reverse {
+      flex-direction: column-reverse;
+    }
+    &--align-stretch {
+      align-items: stretch;
+    }
+    &--align-start {
+      align-items: flex-start;
+    }
+    &--align-end {
+      align-items: flex-end;
+    }
+    &--align-center {
+      align-items: center;
+    }
+    &--align-baseline {
+      align-items: baseline;
+    }
+    &--justify-start {
+      justify-content: flex-start;
+    }
+    &--justify-end {
+      justify-content: flex-end;
+    }
+    &--justify-center {
+      justify-content: center;
+    }
+    &--justify-between {
+      justify-content: space-between;
+    }
+    &--justify-around {
+      justify-content: space-around;
+    }
+    &--justify-evenly {
+      justify-content: space-evenly;
+    }
+    &--justify-initial {
+      justify-content: initial;
+    }
+    &--justify-inherit {
+      justify-content: inherit;
+    }
+    &--first {
+      order: -1;
+    }
+    &--last {
+      order: 1;
+    }
+
+    @mixin media-query($breakpoint) {
+      &--#{$breakpoint},
+      &--#{$breakpoint}-1,
+      &--#{$breakpoint}-2,
+      &--#{$breakpoint}-3,
+      &--#{$breakpoint}-4,
+      &--#{$breakpoint}-5,
+      &--#{$breakpoint}-6,
+      &--#{$breakpoint}-7,
+      &--#{$breakpoint}-8,
+      &--#{$breakpoint}-9,
+      &--#{$breakpoint}-10,
+      &--#{$breakpoint}-11,
+      &--#{$breakpoint}-12,
+      &--#{$breakpoint}-shift-0,
+      &--#{$breakpoint}-shift-1,
+      &--#{$breakpoint}-shift-2,
+      &--#{$breakpoint}-shift-3,
+      &--#{$breakpoint}-shift-4,
+      &--#{$breakpoint}-shift-5,
+      &--#{$breakpoint}-shift-6,
+      &--#{$breakpoint}-shift-7,
+      &--#{$breakpoint}-shift-8,
+      &--#{$breakpoint}-shift-9,
+      &--#{$breakpoint}-shift-10,
+      &--#{$breakpoint}-shift-11,
+      &--#{$breakpoint}-shift-12 {
+        flex: 0 0 auto;
+        padding-right: #{$layout-gutter/2}px;
+        padding-left: #{$layout-gutter/2}px;
+      }
+
+      &--#{$breakpoint} {
+        flex-grow: 1;
+        flex-basis: 0;
+        max-width: 100%;
+      }
+
+      @each $column in $var-columns-top {
+        &--#{$breakpoint}-#{$column} {
+          flex-basis: calc((100% * #{$column}) / #{$layout-columns});
+          max-width: calc((100% * #{$column}) / #{$layout-columns});
+        }
+      }
+
+      &--#{$breakpoint}-shift-0 {
+        margin-left: 0;
+      }
+
+      @each $column in $var-columns-bottom {
+        &--#{$breakpoint}-shift-#{$column} {
+          margin-left: calc((100% * #{$column}) / #{$layout-columns});
+        }
+      }
+    }
+
+    @include media-query(xs);
+
+    @each $breakpoint in $var-media-breakpoint-names{
+      @media only screen and (min-width: #{map-get($var-breakpoints, $breakpoint)}px) {
+        @include media-query($breakpoint);
+      }
+    }
+
+    &--nogutter {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &--debug {
+      background: transparentize($layout-color-debug-column, .8);
+      border: dashed 1px transparentize($layout-color-debug-column, .6);
+    }
+    .box-row,
+    .box-first,
+    .box-nested,
+    .box-large,
+    .box {
+      box-sizing: border-box;
+      position: relative;
+      box-sizing: border-box;
+      min-height: 1rem;
+      margin-bottom: 0;
+      background: transparentize($layout-color-debug-container, .5);
+      border: 1px solid transparentize($layout-color-debug-container, .3);
+      border-radius: 3px;
+      overflow: hidden;
+      text-align: center;
+      color: white;
+    }
+    .box-row {
+      margin-bottom: 1rem;
+    }
+    .box-highlighted {
+      background: $layout-color-debug-container;
+      border: 1px dashed white;
+    }
+    .box-large {
+      height: 8rem;
+    }
+    .box-container {
+      box-sizing: border-box;
+      padding: 0.5rem;
+    }
+  }
+}
