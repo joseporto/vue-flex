@@ -2,8 +2,6 @@ import { isArray } from "util";
 
 const generateBreakpoints = (name, limit, condition) => {
   const conditionArray = isArray(condition) ? condition : [condition]
-  // eslint-disable-next-line no-console
-  console.info(conditionArray);
   const result = {};
   for (let i = 1; i <= limit; i++) {
     result[`flex__col--${name}-${i}`] = conditionArray && conditionArray[0] === i
