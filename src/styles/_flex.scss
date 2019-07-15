@@ -1,6 +1,6 @@
 .flex {
   box-sizing: border-box;
-  &__container {
+  &.container {
     display: flex;
     flex-direction: column;
     position: relative;
@@ -22,7 +22,7 @@
     }
   }
 
-  &__row {
+  &.row {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -88,7 +88,7 @@
     }
   }
 
-  &__col {
+  &.col {
     flex: 1;
     padding-left: #{$layout-gutter/2}px;
     padding-right: #{$layout-gutter/2}px;
