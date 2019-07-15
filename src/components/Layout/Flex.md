@@ -374,22 +374,41 @@ Shift a column by breakpoint with `xsshift`, `smshift`, `mdshift`, `lgshift` and
 ```vue
 <Flex nogutter>
   <Flex row nogutter>
-    <Flex col xs>
+    <Flex col>
       <div class="box-row"></div>
     </Flex>
-    <Flex col xs>
+    <Flex col>
       <div class="box-row"></div>
     </Flex>
   </Flex>
   <Flex row nogutter>
-    <Flex col xs>
+    <Flex col>
       <div class="box-row"></div>
     </Flex>
-    <Flex col xs>
+    <Flex col>
       <div class="box-row"></div>
     </Flex>
-    <Flex col xs>
+    <Flex col>
       <div class="box-row"></div>
+    </Flex>
+  </Flex>
+</Flex>
+```
+
+### Stack
+
+```vue
+<Flex nogutter>
+  <Flex col nogutter>
+    <Flex row nogutter justify="end">
+      <div class="box-row" style="width: 100px;"></div>
+      <div class="box-row" style="width: 100px;"></div>
+    </Flex>
+  </Flex>
+  <Flex col stack nogutter>
+    <Flex row justify="end" nogutter>
+      <div class="box-row" style="width: 100px;"></div>
+      <div class="box-row" style="width: 100px;"></div>
     </Flex>
   </Flex>
 </Flex>
