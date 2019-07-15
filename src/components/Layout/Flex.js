@@ -4,8 +4,8 @@ const generateBreakpoints = (name, limit, condition) => {
   const conditionArray = isArray(condition) ? condition : [condition]
   const result = {};
   for (let i = 1; i <= limit; i++) {
-    result[`flex__col--${name}-${i}`] = conditionArray && conditionArray[0] === i
-    result[`flex__col--${name}-shift-${i}`] = conditionArray && conditionArray[1] === i
+    result[`${name}-${i}`] = conditionArray && conditionArray[0] === i
+    result[`${name}-shift-${i}`] = conditionArray && conditionArray[1] === i
   }
   return result
 }
@@ -34,6 +34,13 @@ export default {
     tag: {
       type: String,
       default: 'div'
+    },
+    /**
+     * force flex-direction to column
+     */
+    stack: {
+      type: Boolean,
+      default: false
     },
     /**
      * Reverse direction of the flex element (only row and column)
@@ -236,64 +243,73 @@ export default {
       if (isContainer) {
         classes = Object.assign(classes, {
           'flex__container': true,
-          'flex__container--fluid': this.fluid,
-          'flex__container--nogutter': this.nogutter,
-          'flex__container--debug': this.debug
+          'fluid': this.fluid,
+          'nogutter': this.nogutter,
+          'debug': this.debug
         })
       }
 
       if (isRow) {
         classes = Object.assign(classes, {
           'flex__row': true,
-          'flex__row--reset': this.resetStyle,
-          'flex__row--reverse': this.reverse,
-          'flex__row--align-stretch': this.align && this.align === 'strech',
-          'flex__row--align-start': (this.align && this.align === 'start') || this.top,
-          'flex__row--align-end': (this.align && this.align === 'end') || this.bottom,
-          'flex__row--align-center': (this.align && this.align === 'center') || this.middle,
-          'flex__row--align-baseline': this.align && this.align === 'baseline',
-          'flex__row--justify-start': (this.justify && this.justify === 'start') || this.left,
-          'flex__row--justify-end': (this.justify && this.justify === 'end') || this.right,
-          'flex__row--justify-center': (this.justify && this.justify === 'center') || this.center,
-          'flex__row--justify-between': (this.justify && this.justify === 'between') || this.between,
-          'flex__row--justify-around': (this.justify && this.justify === 'around') || this.around,
-          'flex__row--justify-evenly': (this.justify && this.justify === 'evenly') || this.evenly,
-          'flex__row--justify-initial': this.justify && this.justify === 'initial',
-          'flex__row--justify-inherit': this.justify && this.justify === 'inherit',
-          'flex__row--grow': this.grow,
-          'flex__row--nowrap': this.nowrap,
-          'flex__row--nogutter': this.nogutter,
-          'flex__row--debug': this.debug
+          'reset': this.resetStyle,
+          'reverse': this.reverse,
+          'align-stretch': this.align && this.align === 'strech',
+          'align-start': (this.align && this.align === 'start') || this.top,
+          'align-end': (this.align && this.align === 'end') || this.bottom,
+          'align-center': (this.align && this.align === 'center') || this.middle,
+          'align-baseline': this.align && this.align === 'baseline',
+          'justify-start': (this.justify && this.justify === 'start') || this.left,
+          'justify-end': (this.justify && this.justify === 'end') || this.right,
+          'justify-center': (this.justify && this.justify === 'center') || this.center,
+          'justify-between': (this.justify && this.justify === 'between') || this.between,
+          'justify-around': (this.justify && this.justify === 'around') || this.around,
+          'justify-evenly': (this.justify && this.justify === 'evenly') || this.evenly,
+          'justify-initial': this.justify && this.justify === 'initial',
+          'justify-inherit': this.justify && this.justify === 'inherit',
+          'grow': this.grow,
+          'nowrap': this.nowrap,
+          'nogutter': this.nogutter,
+          'debug': this.debug
         })
       }
 
       if (isColumn) {
         classes = Object.assign(classes, {
-          'flex__col': true,
-          'flex__col--reverse': this.reverse,
-          'flex__col--align-stretch': this.align && this.align === 'strech',
-          'flex__col--align-start': this.align && this.align === 'start',
-          'flex__col--align-end': this.align && this.align === 'end',
-          'flex__col--align-center': this.align && this.align === 'center',
-          'flex__col--align-baseline': this.align && this.align === 'baseline',
-          'flex__col--justify-start': (this.justify && this.justify === 'start') || this.left,
-          'flex__col--justify-end': (this.justify && this.justify === 'end') || this.right,
-          'flex__col--justify-center': (this.justify && this.justify === 'center') || this.center,
-          'flex__col--justify-between': (this.justify && this.justify === 'between') || this.between,
-          'flex__col--justify-around': (this.justify && this.justify === 'around') || this.around,
-          'flex__col--justify-evenly': (this.justify && this.justify === 'evenly') || this.evenly,
-          'flex__col--justify-initial': this.justify && this.justify === 'initial',
-          'flex__col--justify-inherit': this.justify && this.justify === 'inherit',
-          ...generateBreakpoints('xs', 12, this.xs),
-          ...generateBreakpoints('sm', 12, this.sm),
-          ...generateBreakpoints('md', 12, this.md),
-          ...generateBreakpoints('lg', 12, this.lg),
-          ...generateBreakpoints('xl', 12, this.xl),
-          'flex__col--first': this.first,
-          'flex__col--last': this.last,
-          'flex__col--nogutter': this.nogutter,
-          'flex__col--debug': this.debug
-        })
+          flex__col: true,
+          "stack": this.stack,
+          "reverse": this.reverse,
+          "align-stretch": this.align && this.align === "strech",
+          "align-start": this.align && this.align === "start",
+          "align-end": this.align && this.align === "end",
+          "align-center": this.align && this.align === "center",
+          "align-baseline": this.align && this.align === "baseline",
+          "justify-start":
+            (this.justify && this.justify === "start") || this.left,
+          "justify-end":
+            (this.justify && this.justify === "end") || this.right,
+          "justify-center":
+            (this.justify && this.justify === "center") || this.center,
+          "justify-between":
+            (this.justify && this.justify === "between") || this.between,
+          "justify-around":
+            (this.justify && this.justify === "around") || this.around,
+          "justify-evenly":
+            (this.justify && this.justify === "evenly") || this.evenly,
+          "justify-initial":
+            this.justify && this.justify === "initial",
+          "justify-inherit":
+            this.justify && this.justify === "inherit",
+          ...generateBreakpoints("xs", 12, this.xs),
+          ...generateBreakpoints("sm", 12, this.sm),
+          ...generateBreakpoints("md", 12, this.md),
+          ...generateBreakpoints("lg", 12, this.lg),
+          ...generateBreakpoints("xl", 12, this.xl),
+          "first": this.first,
+          "last": this.last,
+          "nogutter": this.nogutter,
+          "debug": this.debug
+        });
       }
       return classes
     },
