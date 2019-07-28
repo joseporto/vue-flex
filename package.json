@@ -17,7 +17,7 @@
     "lint:fix": "eslint --ext .js,.vue --fix 'src/components/**'",
     "lint:scripts": "eslint --ext .js,.vue src/components",
     "styleguide": "vue-cli-service styleguidist",
-    "styleguide:build": "vue-cli-service styleguidist:build && node-sass ./src/styles/main.scss -o ./styleguide/build/ && replace '</head>' '<link rel=\"stylesheet\" type=\"text/css\" href=\"build/main.css\"></head>' ./styleguide/index.html && node replace.js && rimraf ./styleguide/build"
+    "styleguide:build": "vue-cli-service styleguidist:build && node-sass ./src/styles/main.scss -o ./styleguide/build/ && node-sass ./src/styles/styleguide.scss -o ./styleguide/build/ && replace '</head>' '<link rel=\"stylesheet\" type=\"text/css\" href=\"build/main.css\"><link rel=\"stylesheet\" type=\"text/css\" href=\"build/styleguide.css\"></head>' ./styleguide/index.html && node replace.js && rimraf ./styleguide/build"
   },
   "main": "dist/@jporto/vue-flex.common.js",
   "unpkg": "dist/@jporto/vue-flex.umd.min.js",

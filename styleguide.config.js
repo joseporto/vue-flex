@@ -18,6 +18,7 @@ module.exports = {
   ],
   require: [
     'babel-polyfill',
-    path.join(__dirname, 'src/styles/main.scss')
+    path.join(__dirname, 'src/styles/main.scss'),
+    path.join(__dirname, 'src/styles/styleguide.scss')
   ]
 }

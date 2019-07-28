@@ -11,163 +11,114 @@ Container will either respect the `maxWidth` setting, or utilize all of the avai
 
 ## As a Row
 
+Rows are flex containers, that have the `flex-direction` set to `row`. By default, a row will use all the available column space.
+
+### Alignment
+
 Add classes to align elements to the start or end of a row as well as the top, bottom, or center of a column.
 
-`align="start"` or `top`
+#### Horizontal alignment
+
+- Align `left`
 
 ```vue
-<Flex row nogutter>
-  <Flex col :xs="12" nogutter>
-    <div class="box box-container">
-      <Flex row justify="start" nogutter>
-        <Flex col :xs="6" nogutter>
-          <div class="box-nested"></div>
-        </Flex>
-      </Flex>
-    </div>
+<Flex>
+  <Flex xs="row,left">
+    <Flex xs="6,0,col">
+    </Flex>
   </Flex>
 </Flex>
 ```
 
-`align="center"` or `middle`
+- Align `center`
 
 ```vue
-<Flex row nogutter>
-  <Flex col :xs="12" nogutter>
-    <div class="box box-container">
-      <Flex row justify="center" nogutter>
-        <Flex col :xs="6" nogutter>
-          <div class="box-nested"></div>
-        </Flex>
-      </Flex>
-    </div>
+<Flex>
+  <Flex xs="row,center">
+    <Flex xs="6,0,col">
+    </Flex>
   </Flex>
 </Flex>
 ```
 
-`align="end"` or `bottom`
+- Align `right`
 
 ```vue
-<Flex row nogutter>
-  <Flex col :xs="12" nogutter>
-    <div class="box box-container">
-      <Flex row justify="end" nogutter>
-        <Flex col :xs="6" nogutter>
-          <div class="box-nested"></div>
-        </Flex>
-      </Flex>
-    </div>
+<Flex>
+  <Flex xs="row,right">
+    <Flex xs="6,0,col">
+    </Flex>
   </Flex>
 </Flex>
 ```
 
-### Vertical alignment
-
-`justify="start"` or `left`
+- Align `around`
 
 ```vue
-<Flex row align="start">
-  <Flex col :xs="6">
-    <div class="box-large"></div>
-  </Flex>
-  <Flex col :xs="6">
-    <div class="box"></div>
+<Flex>
+  <Flex xs="row,around">
+    <Flex xs="2,col" />
+    <Flex xs="2,col" />
+    <Flex xs="2,col" />
   </Flex>
 </Flex>
 ```
 
-`justify="center"` or `center`
+- Align `between`
 
 ```vue
-<Flex row align="center">
-  <Flex col :xs="6">
-    <div class="box-large"></div>
-  </Flex>
-  <Flex col :xs="6">
-    <div class="box"></div>
+<Flex>
+  <Flex xs="row,between">
+    <Flex xs="2,col" />
+    <Flex xs="2,col" />
+    <Flex xs="2,col" />
   </Flex>
 </Flex>
 ```
 
-`justify="end"` or `right`
+- Align `evenly`
 
 ```vue
-<Flex row align="end">
-  <Flex col :xs="6">
-    <div class="box-large"></div>
-  </Flex>
-  <Flex col :xs="6">
-    <div class="box"></div>
-  </Flex>
-</Flex>
-```
-
-### Distribution
-
-Add classes to distribute the contents of a row or column.
-
-`justify="around"` or `around`
-
-```vue
-<Flex row>
-  <Flex col :xs="12">
-    <div class="box box-container">
-      <Flex row justify="around">
-        <Flex col :xs="2">
-          <div class="box-nested"></div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-nested"></div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-nested"></div>
-        </Flex>
-      </Flex>
-    </div>
+<Flex>
+  <Flex xs="row,evenly">
+    <Flex xs="2,col" />
+    <Flex xs="2,col" />
+    <Flex xs="2,col" />
   </Flex>
 </Flex>
 ```
 
-`justify="between"` or `between`
+#### Vertical alignment
+
+- Align `top`
 
 ```vue
-<Flex row>
-  <Flex col :xs="12">
-    <div class="box box-container">
-      <Flex row justify="between">
-        <Flex col :xs="2">
-          <div class="box-nested"></div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-nested"></div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-nested"></div>
-        </Flex>
-      </Flex>
-    </div>
+<Flex>
+  <Flex xs="row,top">
+    <Flex xs="6,col,gutter" class="large" />
+    <Flex xs="6,col,gutter" />
   </Flex>
 </Flex>
 ```
 
-`justify="evenly"` or `evenly`
+- Align `middle`
 
 ```vue
-<Flex row>
-  <Flex col :xs="12">
-    <div class="box box-container">
-      <Flex row justify="evenly">
-        <Flex col :xs="2">
-          <div class="box-nested"></div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-nested"></div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-nested"></div>
-        </Flex>
-      </Flex>
-    </div>
+<Flex>
+  <Flex xs="row,middle">
+    <Flex xs="6,col,gutter" class="large" />
+    <Flex xs="6,col,gutter" />
+  </Flex>
+</Flex>
+```
+
+- Align `bottom`
+
+```vue
+<Flex>
+  <Flex xs="row,bottom">
+    <Flex xs="6,col,gutter" class="large" />
+    <Flex xs="6,col,gutter" />
   </Flex>
 </Flex>
 ```
@@ -177,68 +128,104 @@ Add classes to distribute the contents of a row or column.
 `reverse`
 
 ```vue
-<Flex row>
-  <Flex col :xs="12">
-    <div class="box box-container">
-      <Flex row reverse>
-        <Flex col :xs="2">
-          <div class="box-nested">1</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-nested">2</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-nested">3</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-nested">4</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-nested">5</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-nested">6</div>
-        </Flex>
-      </Flex>
-    </div>
+<Flex>
+  <Flex xs="row,reverse">
+    <Flex xs="2,col,gutter,middle">
+      1
+    </Flex>
+    <Flex xs="2,col,gutter,middle">
+      2
+    </Flex>
+    <Flex xs="2,col,gutter,middle">
+      3
+    </Flex>
+    <Flex xs="2,col,gutter,middle">
+      4
+    </Flex>
+    <Flex xs="2,col,gutter,middle">
+      5
+    </Flex>
+    <Flex xs="2,col,gutter,middle">
+      6
+    </Flex>
   </Flex>
 </Flex>
 ```
 
-## As a column
+### Reordering
+
+- first
+
+```vue
+<Flex>
+  <Flex xs="row">
+    <Flex xs="2,col,middle,gutter">
+      1
+    </Flex>
+    <Flex xs="2,col,middle,gutter">
+      2
+    </Flex>
+    <Flex xs="2,col,middle,gutter">
+      3
+    </Flex>
+    <Flex xs="2,col,middle,gutter">
+      4
+    </Flex>
+    <Flex xs="2,col,middle,gutter">
+      5
+    </Flex>
+    <Flex xs="2,col,middle,gutter,first" class="highlighted">
+      6
+    </Flex>
+  </Flex>
+</Flex>
+```
+
+- last
+
+```vue
+<Flex>
+  <Flex xs="row">
+    <Flex xs="2,col,middle,gutter,last" class="highlighted">
+      1
+    </Flex>
+    <Flex xs="2,col,middle,gutter">
+      2
+    </Flex>
+    <Flex xs="2,col,middle,gutter">
+      3
+    </Flex>
+    <Flex xs="2,col,middle,gutter">
+      4
+    </Flex>
+    <Flex xs="2,col,middle,gutter">
+      5
+    </Flex>
+    <Flex xs="2,col,middle,gutter">
+      6
+    </Flex>
+  </Flex>
+</Flex>
+```
 
 ### Responsive
 
 Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md, lg & xl viewport widths.
 
 ```vue
-<Flex nogutter>
-  <Flex row nogutter>
-    <Flex col :xs="12" :sm="3" :md="2" :lg="1">
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col :xs="6" :sm="6" :md="8" :lg="10">
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col :xs="6" :sm="3" :md="2" :lg="1">
-      <div class="box-row"></div>
-    </Flex>
+<Flex>
+  <Flex xs="row">
+    <Flex xs="12,col,gutter" sm="3" md="2" lg="1" />
+    <Flex xs="6,col,gutter" sm="6" md="8" lg="10" />
+    <Flex xs="6,col,gutter" sm="3" md="2" lg="1" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="12" :sm="3" :md="2" :lg="1">
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col :xs="12" :sm="9" :md="10" :lg="11">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="12,col,gutter" sm="3" md="2" lg="1" />
+    <Flex xs="12,col,gutter" sm="9" md="10" lg="11" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="10" :sm="6" :md="8" :lg="10">
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col :xs="2" :sm="6" :md="4" :lg="2">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="10,col,gutter" sm="6" md="8" lg="10" />
+    <Flex xs="2,col,gutter" sm="6" md="4" lg="2" />
   </Flex>
 </Flex>
 ```
@@ -248,123 +235,75 @@ Responsive modifiers enable specifying different column sizes, offsets, alignmen
 Percent based widths allow fluid resizing of columns and rows.
 
 ```vue
-<Flex nogutter>
-  <Flex row nogutter>
-    <Flex col :xs="12">
-      <div class="box-row"></div>
-    </Flex>
+<Flex>
+  <Flex xs="row">
+    <Flex xs="12,col,gutter" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="1">
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col :xs="11">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="1,col,gutter" />
+    <Flex xs="11,col,gutter" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="2">
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col :xs="10">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="2,col,gutter" />
+    <Flex xs="10,col,gutter" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="3">
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col :xs="9">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="3,col,gutter" />
+    <Flex xs="9,col,gutter" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="4">
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col :xs="8">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="4,col,gutter" />
+    <Flex xs="8,col,gutter" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="5">
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col :xs="7">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="5,col,gutter" />
+    <Flex xs="7,col,gutter" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="6">
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col :xs="6">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="6,col,gutter" />
+    <Flex xs="6,col,gutter" />
   </Flex>
 </Flex>
 ```
 
 ### Shift
 
-Shift a column by breakpoint with `xsshift`, `smshift`, `mdshift`, `lgshift` and `xlshift`.
+Shift a column by breakpoint with.
 
 ```vue
-<Flex nogutter>
-  <Flex row nogutter>
-    <Flex col :xs="[1, 11]">
-      <div class="box-row"></div>
-    </Flex>
+<Flex>
+  <Flex xs="row">
+    <Flex xs="1,11,col" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="[2, 10]">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="2,10,col" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="[3, 9]">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="3,9,col" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="[4, 8]">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="4,8,col" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="[5, 7]">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="5,7,col" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="[6, 6]">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="6,6,col" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="[7, 5]">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="7,5,col" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="[8, 4]">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="8,4,col" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="[9, 3]">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="9,3,col" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="[10, 2]">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="10,2,col" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col :xs="[11, 1]">
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="11,1,col" />
   </Flex>
 </Flex>
 ```
@@ -372,164 +311,70 @@ Shift a column by breakpoint with `xsshift`, `smshift`, `mdshift`, `lgshift` and
 ### Auto width
 
 ```vue
-<Flex nogutter>
-  <Flex row nogutter>
-    <Flex col>
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col>
-      <div class="box-row"></div>
-    </Flex>
+<Flex>
+  <Flex xs="row">
+    <Flex xs="col" />
+    <Flex xs="col" />
   </Flex>
-  <Flex row nogutter>
-    <Flex col>
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col>
-      <div class="box-row"></div>
-    </Flex>
-    <Flex col>
-      <div class="box-row"></div>
-    </Flex>
+  <Flex xs="row">
+    <Flex xs="col" />
+    <Flex xs="col" />
+    <Flex xs="col" />
   </Flex>
 </Flex>
 ```
 
-### Stack
+### Nested
 
 ```vue
-<Flex nogutter>
-  <Flex col nogutter>
-    <Flex row nogutter justify="end">
-      <div class="box-row" style="width: 100px;"></div>
-      <div class="box-row" style="width: 100px;"></div>
-    </Flex>
-  </Flex>
-  <Flex col stack nogutter>
-    <Flex row justify="end" nogutter>
-      <div class="box-row" style="width: 100px;"></div>
-      <div class="box-row" style="width: 100px;"></div>
-    </Flex>
-  </Flex>
-</Flex>
-```
-
-### Nested Grids
-
-Nest grids inside grids inside grids.
-
-```vue
-<Flex row>
-  <Flex col :xs="7">
-    <div class="box box-container">
-      <Flex row>
-        <Flex col :xs="9">
-          <div class="box-first box-container">
-            <Flex row>
-              <Flex col :xs="4">
-                <div class="box-first"></div>
-              </Flex>
-              <Flex col :xs="8">
-                <div class="box-first"></div>
+<Flex>
+  <Flex xs="row">
+    <Flex xs="7,col,gutter">
+      <Flex>
+        <Flex xs="row">
+          <Flex xs="7,col,gutter">
+            <Flex>
+              <Flex xs="row">
+                <Flex xs="4,col,gutter" />
+                <Flex xs="8,col,gutter" />
               </Flex>
             </Flex>
-          </div>
-        </Flex>
-        <Flex col :xs="3">
-          <div class="box-first box-container">
-            <Flex row>
-              <Flex col :xs="true">
-                <div class="box-first"></div>
+          </Flex>
+          <Flex xs="5,col,gutter">
+            <Flex>
+              <Flex xs="row">
+                <Flex xs="true,col,gutter" />
               </Flex>
             </Flex>
-          </div>
+          </Flex>
         </Flex>
       </Flex>
-    </div>
-  </Flex>
-  <Flex col :xs="5">
-    <div class="box box-container">
-      <Flex row>
-        <Flex col :xs="12">
-          <div class="box-first box-container">
-            <Flex row>
-              <Flex col :xs="6">
-                <div class="box-first"></div>
-              </Flex>
-              <Flex col :xs="6">
-                <div class="box-first"></div>
+    </Flex>
+    <Flex xs="5,col,gutter">
+      <Flex>
+        <Flex xs="row">
+          <Flex xs="12,col,gutter">
+            <Flex>
+              <Flex xs="row">
+                <Flex xs="6,col,gutter" />
+                <Flex xs="6,col,gutter" />
               </Flex>
             </Flex>
-          </div>
+          </Flex>
         </Flex>
       </Flex>
-    </div>
+    </Flex>
   </Flex>
 </Flex>
 ```
 
-### Reordering
-
-Add classes to reorder columns.
-
-`first`
+### Hidden
 
 ```vue
-<Flex row>
-  <Flex col :xs="12">
-    <div class="box box-container">
-      <Flex row>
-        <Flex col :xs="2">
-          <div class="box-first">1</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-first">2</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-first">3</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-first">4</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-first">5</div>
-        </Flex>
-        <Flex col :xs="2" first>
-          <div class="box-highlighted">6</div>
-        </Flex>
-      </Flex>
-    </div>
-  </Flex>
-</Flex>
-```
-
-`last`
-
-```vue
-<Flex row>
-  <Flex col :xs="12">
-    <div class="box box-container">
-      <Flex row>
-        <Flex col :xs="2" last>
-          <div class="box-highlighted">1</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-first">2</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-first">3</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-first">4</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-first">5</div>
-        </Flex>
-        <Flex col :xs="2">
-          <div class="box-first">6</div>
-        </Flex>
-      </Flex>
-    </div>
+<Flex>
+  <Flex xs="row">
+    <Flex xs="col" />
+    <Flex xs="col,hidden" sm="col" />
   </Flex>
 </Flex>
 ```
