@@ -1,183 +1,31 @@
 .flex {
   box-sizing: border-box;
+  display: flex;
+  padding: 0;
+  margin: 0;
   &.container {
-    display: flex;
     flex-direction: column;
     position: relative;
     width: 100%;
     max-width: #{$layout-max-width}px;
     margin: 0 auto;
-    padding-left: #{$layout-gutter}px;
-    padding-right: #{$layout-gutter}px;
     &.fluid {
       max-width: 100%;
     }
-    &.nogutter {
-      padding-left: 0;
-      padding-right: 0;
+    &.gutter {
+      padding-left: #{$layout-gutter/2}px;
+      padding-right: #{$layout-gutter/2}px;
     }
     &.debug {
       background: transparentize($layout-color-debug-container, .8);
       border: dashed 1px transparentize($layout-color-debug-container, .6);
     }
   }
-
-  &.row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 0 #{$layout-gutter}px;
-    &.reset {
-      padding: 0;
-      list-style: none;
-    }
-    &.reverse {
-      flex-direction: row-reverse;
-    }
-    &.align-stretch {
-      align-items: stretch;
-    }
-    &.align-start {
-      align-items: flex-start;
-    }
-    &.align-end {
-      align-items: flex-end;
-    }
-    &.align-center {
-      align-items: center;
-    }
-    &.align-baseline {
-      align-items: baseline;
-    }
-    &.justify-start {
-      justify-content: flex-start;
-    }
-    &.justify-end {
-      justify-content: flex-end;
-    }
-    &.justify-center {
-      justify-content: center;
-    }
-    &.justify-between {
-      justify-content: space-between;
-    }
-    &.justify-around {
-      justify-content: space-around;
-    }
-    &.justify-evenly {
-      justify-content: space-evenly;
-    }
-    &.justify-initial {
-      justify-content: initial;
-    }
-    &.justify-inherit {
-      justify-content: inherit;
-    }
-    &.grow {
-      flex-grow: 1;
-    }
-    &.nowrap {
-      flex-wrap: nowrap;
-    }
-    &.nogutter {
-      margin: 0
-    }
-    &.debug {
-      background: transparentize($layout-color-debug-row, .8);
-      border: dashed 1px transparentize($layout-color-debug-row, .6);
-    }
-  }
-
-  &.col {
-    flex: 1;
-    padding-left: #{$layout-gutter/2}px;
-    padding-right: #{$layout-gutter/2}px;
-    &.reverse {
-      flex-direction: row-reverse;
-    }
-    &.stack {
-      flex-direction: column;
-      &.reverse {
-        flex-direction: column-reverse;
-      }
-    }
-    &.align-stretch {
-      align-items: stretch;
-    }
-    &.align-start {
-      align-items: flex-start;
-    }
-    &.align-end {
-      align-items: flex-end;
-    }
-    &.align-center {
-      align-items: center;
-    }
-    &.align-baseline {
-      align-items: baseline;
-    }
-    &.justify-start {
-      justify-content: flex-start;
-    }
-    &.justify-end {
-      justify-content: flex-end;
-    }
-    &.justify-center {
-      justify-content: center;
-    }
-    &.justify-between {
-      justify-content: space-between;
-    }
-    &.justify-around {
-      justify-content: space-around;
-    }
-    &.justify-evenly {
-      justify-content: space-evenly;
-    }
-    &.justify-initial {
-      justify-content: initial;
-    }
-    &.justify-inherit {
-      justify-content: inherit;
-    }
-    &.first {
-      order: -1;
-    }
-    &.last {
-      order: 1;
-    }
-
+  &:not(.container) {
+    // width: 100%;
+    flex-grow: 1;
+    flex-shrink: 1;
     @mixin media-query($breakpoint) {
-      &.#{$breakpoint},
-      &.#{$breakpoint}-1,
-      &.#{$breakpoint}-2,
-      &.#{$breakpoint}-3,
-      &.#{$breakpoint}-4,
-      &.#{$breakpoint}-5,
-      &.#{$breakpoint}-6,
-      &.#{$breakpoint}-7,
-      &.#{$breakpoint}-8,
-      &.#{$breakpoint}-9,
-      &.#{$breakpoint}-10,
-      &.#{$breakpoint}-11,
-      &.#{$breakpoint}-12,
-      &.#{$breakpoint}-shift-0,
-      &.#{$breakpoint}-shift-1,
-      &.#{$breakpoint}-shift-2,
-      &.#{$breakpoint}-shift-3,
-      &.#{$breakpoint}-shift-4,
-      &.#{$breakpoint}-shift-5,
-      &.#{$breakpoint}-shift-6,
-      &.#{$breakpoint}-shift-7,
-      &.#{$breakpoint}-shift-8,
-      &.#{$breakpoint}-shift-9,
-      &.#{$breakpoint}-shift-10,
-      &.#{$breakpoint}-shift-11,
-      &.#{$breakpoint}-shift-12 {
-        flex: 0 0 auto;
-        padding-right: #{$layout-gutter/2}px;
-        padding-left: #{$layout-gutter/2}px;
-      }
 
       &.#{$breakpoint} {
         flex-grow: 1;
@@ -200,6 +48,100 @@
         &.#{$breakpoint}-shift-#{$column} {
           margin-left: calc((100% * #{$column}) / #{$layout-columns});
         }
+        &.#{$breakpoint}-gutter.#{$breakpoint}-row {
+          margin: #{$layout-gutter}px 0;
+        }
+        &.#{$breakpoint}-gutter.#{$breakpoint}-col {
+          padding-left: #{$layout-gutter/2}px;
+          padding-right: #{$layout-gutter/2}px;
+        }
+        &.#{$breakpoint}-reverse.#{$breakpoint}-row {
+          flex-direction: row-reverse;
+        }
+        &.#{$breakpoint}-reverse.#{$breakpoint}-col {
+          flex-direction: column-reverse;
+        }
+      }
+
+
+      &.#{$breakpoint}-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+        &.debug {
+          background: transparentize($layout-color-debug-row, .8);
+          border: dashed 1px transparentize($layout-color-debug-row, .6);
+        }
+      }
+
+      &.#{$breakpoint}-col {
+        // flex: 1;
+        flex-direction: column;
+        // flex: 0 0 auto;
+
+        &.debug {
+          background: transparentize($layout-color-debug-column, .8);
+          border: dashed 1px transparentize($layout-color-debug-column, .6);
+        }
+      }
+
+      &.#{$breakpoint}-hidden {
+        display: none;
+      }
+
+      &:not(.#{$breakpoint}-hidden) {
+        display: flex;
+      }
+
+      &.#{$breakpoint}-align-stretch {
+        align-items: stretch;
+      }
+      &.#{$breakpoint}-align-start {
+        align-items: flex-start;
+      }
+      &.#{$breakpoint}-align-end {
+        align-items: flex-end;
+      }
+      &.#{$breakpoint}-align-center {
+        align-items: center;
+      }
+      &.#{$breakpoint}-align-baseline {
+        align-items: baseline;
+      }
+      &.#{$breakpoint}-justify-start {
+        justify-content: flex-start;
+      }
+      &.#{$breakpoint}-justify-end {
+        justify-content: flex-end;
+      }
+      &.#{$breakpoint}-justify-center {
+        justify-content: center;
+      }
+      &.#{$breakpoint}-justify-between {
+        justify-content: space-between;
+      }
+      &.#{$breakpoint}-justify-around {
+        justify-content: space-around;
+      }
+      &.#{$breakpoint}-justify-evenly {
+        justify-content: space-evenly;
+      }
+      &.#{$breakpoint}-justify-initial {
+        justify-content: initial;
+      }
+      &.#{$breakpoint}-justify-inherit {
+        justify-content: inherit;
+      }
+      &.#{$breakpoint}-grow {
+        flex-grow: 1;
+      }
+      &.#{$breakpoint}-nowrap {
+        flex-wrap: nowrap;
+      }
+      &.#{$breakpoint}-first {
+        order: -1;
+      }
+      &.#{$breakpoint}-last {
+        order: 1;
       }
     }
 
@@ -209,46 +151,6 @@
       @media only screen and (min-width: #{map-get($var-breakpoints, $breakpoint)}px) {
         @include media-query($breakpoint);
       }
-    }
-
-    &.nogutter {
-      padding-left: 0;
-      padding-right: 0;
-    }
-    &.debug {
-      background: transparentize($layout-color-debug-column, .8);
-      border: dashed 1px transparentize($layout-color-debug-column, .6);
-    }
-    .box-row,
-    .box-first,
-    .box-nested,
-    .box-large,
-    .box {
-      box-sizing: border-box;
-      position: relative;
-      box-sizing: border-box;
-      min-height: 1rem;
-      margin-bottom: 0;
-      background: transparentize($layout-color-debug-container, .5);
-      border: 1px solid transparentize($layout-color-debug-container, .3);
-      border-radius: 3px;
-      overflow: hidden;
-      text-align: center;
-      color: white;
-    }
-    .box-row {
-      margin-bottom: 1rem;
-    }
-    .box-highlighted {
-      background: $layout-color-debug-container;
-      border: 1px dashed white;
-    }
-    .box-large {
-      height: 8rem;
-    }
-    .box-container {
-      box-sizing: border-box;
-      padding: 0.5rem;
     }
   }
 }
