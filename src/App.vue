@@ -12,6 +12,7 @@ export default {
 
 <style lang="scss">
 @import './styles/main';
+@import './styles/styleguide';
 
 html, body {
   background: #ddd;
