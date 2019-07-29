@@ -40,25 +40,25 @@
         }
       }
 
-      &.#{$breakpoint}-shift-0 {
+      &.#{$breakpoint}-sft-0 {
         margin-left: 0;
       }
 
       @each $column in $var-columns-bottom {
-        &.#{$breakpoint}-shift-#{$column} {
+        &.#{$breakpoint}-sft-#{$column} {
           margin-left: calc((100% * #{$column}) / #{$layout-columns});
         }
-        &.#{$breakpoint}-gutter.#{$breakpoint}-row {
+        &.#{$breakpoint}-gtr.#{$breakpoint}-row {
           margin: #{$layout-gutter}px 0;
         }
-        &.#{$breakpoint}-gutter.#{$breakpoint}-col {
+        &.#{$breakpoint}-gtr.#{$breakpoint}-col {
           padding-left: #{$layout-gutter/2}px;
           padding-right: #{$layout-gutter/2}px;
         }
-        &.#{$breakpoint}-reverse.#{$breakpoint}-row {
+        &.#{$breakpoint}-rvs.#{$breakpoint}-row {
           flex-direction: row-reverse;
         }
-        &.#{$breakpoint}-reverse.#{$breakpoint}-col {
+        &.#{$breakpoint}-rvs.#{$breakpoint}-col {
           flex-direction: column-reverse;
         }
       }
@@ -84,7 +84,7 @@
         }
       }
 
-      &.#{$breakpoint}-hidden {
+      &.#{$breakpoint}-hdn {
         display: none;
       }
 
@@ -92,55 +92,55 @@
         display: flex;
       }
 
-      &.#{$breakpoint}-align-stretch {
+      &.#{$breakpoint}-al-stch {
         align-items: stretch;
       }
-      &.#{$breakpoint}-align-start {
+      &.#{$breakpoint}-al-top {
         align-items: flex-start;
       }
-      &.#{$breakpoint}-align-end {
+      &.#{$breakpoint}-al-bot {
         align-items: flex-end;
       }
-      &.#{$breakpoint}-align-center {
+      &.#{$breakpoint}-al-mid {
         align-items: center;
       }
-      &.#{$breakpoint}-align-baseline {
+      &.#{$breakpoint}-al-bse {
         align-items: baseline;
       }
-      &.#{$breakpoint}-justify-start {
+      &.#{$breakpoint}-jf-lft {
         justify-content: flex-start;
       }
-      &.#{$breakpoint}-justify-end {
+      &.#{$breakpoint}-jf-rgt {
         justify-content: flex-end;
       }
-      &.#{$breakpoint}-justify-center {
+      &.#{$breakpoint}-jf-ctr {
         justify-content: center;
       }
-      &.#{$breakpoint}-justify-between {
+      &.#{$breakpoint}-jf-bet {
         justify-content: space-between;
       }
-      &.#{$breakpoint}-justify-around {
+      &.#{$breakpoint}-jf-aro {
         justify-content: space-around;
       }
-      &.#{$breakpoint}-justify-evenly {
+      &.#{$breakpoint}-jf-evl {
         justify-content: space-evenly;
       }
-      &.#{$breakpoint}-justify-initial {
+      &.#{$breakpoint}-jf-ini {
         justify-content: initial;
       }
-      &.#{$breakpoint}-justify-inherit {
+      &.#{$breakpoint}-jf-inh {
         justify-content: inherit;
       }
-      &.#{$breakpoint}-grow {
+      &.#{$breakpoint}-gro {
         flex-grow: 1;
       }
-      &.#{$breakpoint}-nowrap {
+      &.#{$breakpoint}-nwp {
         flex-wrap: nowrap;
       }
-      &.#{$breakpoint}-first {
+      &.#{$breakpoint}-fst {
         order: -1;
       }
-      &.#{$breakpoint}-last {
+      &.#{$breakpoint}-lst {
         order: 1;
       }
     }
