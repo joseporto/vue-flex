@@ -16,31 +16,31 @@ const generateBreakpoints = (name, limit, condition) => {
   const result = {};
   for (let i = 1; i <= limit; i++) {
     result[`${name}-${i}`] = conditionArray && parseInt(conditionArray[0]) === i;
-    result[`${name}-shift-${i}`] = conditionArray && parseInt(conditionArray[1]) === i;
+    result[`${name}-sft-${i}`] = conditionArray && parseInt(conditionArray[1]) === i;
   }
 
   result[`${name}-row`] = condition.indexOf('row') !== -1;
   result[`${name}-col`] = condition.indexOf('col') !== -1;
-  result[`${name}-align-stretch`] = condition.indexOf('stretch') !== -1;
-  result[`${name}-align-start`] = condition.indexOf('top') !== -1;
-  result[`${name}-align-end`] = condition.indexOf('bottom') !== -1;
-  result[`${name}-align-center`] = condition.indexOf('middle') !== -1;
-  result[`${name}-align-baseline`] = condition.indexOf('baseline') !== -1;
-  result[`${name}-justify-start`] = condition.indexOf('left') !== -1;
-  result[`${name}-justify-end`] = condition.indexOf('right') !== -1;
-  result[`${name}-justify-center`] = condition.indexOf('center') !== -1;
-  result[`${name}-justify-between`] = condition.indexOf('between') !== -1;
-  result[`${name}-justify-around`] = condition.indexOf('around') !== -1;
-  result[`${name}-justify-evenly`] = condition.indexOf('evenly') !== -1;
-  result[`${name}-justify-initial`] = condition.indexOf('initial') !== -1;
-  result[`${name}-justify-inherit`] = condition.indexOf('inherit') !== -1;
-  result[`${name}-first`] = condition.indexOf('first') !== -1;
-  result[`${name}-last`] = condition.indexOf('last') !== -1;
-  result[`${name}-gutter`] = condition.indexOf('gutter') !== -1;
-  result[`${name}-nowrap`] = condition.indexOf('nowrap') !== -1;
-  result[`${name}-grow`] = condition.indexOf('grow') !== -1;
-  result[`${name}-reverse`] = condition.indexOf('reverse') !== -1;
-  result[`${name}-hidden`] = condition.indexOf('hidden') !== -1;
+  result[`${name}-al-stch`] = condition.indexOf('stretch') !== -1;
+  result[`${name}-al-top`] = condition.indexOf('top') !== -1;
+  result[`${name}-al-bot`] = condition.indexOf('bottom') !== -1;
+  result[`${name}-al-mid`] = condition.indexOf('middle') !== -1;
+  result[`${name}-al-bse`] = condition.indexOf('baseline') !== -1;
+  result[`${name}-jf-lft`] = condition.indexOf('left') !== -1;
+  result[`${name}-jf-rgt`] = condition.indexOf('right') !== -1;
+  result[`${name}-jf-ctr`] = condition.indexOf('center') !== -1;
+  result[`${name}-jf-bet`] = condition.indexOf('between') !== -1;
+  result[`${name}-jf-aro`] = condition.indexOf('around') !== -1;
+  result[`${name}-jf-evl`] = condition.indexOf('evenly') !== -1;
+  result[`${name}-jf-ini`] = condition.indexOf('initial') !== -1;
+  result[`${name}-jf-inh`] = condition.indexOf('inherit') !== -1;
+  result[`${name}-fst`] = condition.indexOf('first') !== -1;
+  result[`${name}-lst`] = condition.indexOf('last') !== -1;
+  result[`${name}-gtr`] = condition.indexOf('gutter') !== -1;
+  result[`${name}-nwp`] = condition.indexOf('nowrap') !== -1;
+  result[`${name}-gro`] = condition.indexOf('grow') !== -1;
+  result[`${name}-rvs`] = condition.indexOf('reverse') !== -1;
+  result[`${name}-hdn`] = condition.indexOf('hidden') !== -1;
   return result
 }
 
