@@ -2,7 +2,7 @@
   "name": "@jporto/vue-flex",
   "version": "0.0.0",
   "private": false,
-  "description": "A Vue JS Flex component for generic layout",
+  "description": "A Vue JS Flex component for mobile first layouts",
   "author": {
     "name": "José Porto",
     "email": "joseporto@icloud.com"
