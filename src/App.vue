@@ -1,6 +1,19 @@
 <template>
   <div id="app">
-    <img alt="logo" src="./assets/logo.svg" height="128">
+    <Flex debug>
+      <Flex xs="row,gutter" debug>
+        <img alt="logo" src="./assets/logo.svg" height="128"> [Header]
+      </Flex>
+      <Flex xs="col,gutter" md="row" debug>
+        <Flex xs="12,col" md="3">
+          [Navigation]
+        </Flex>
+        <Flex xs="12,col" md="9">
+          [Main]
+        </Flex>
+      </Flex>
+    </Flex>
+    <Guides />
   </div>
 </template>
 
@@ -12,7 +25,6 @@ export default {
 
 <style lang="scss">
 @import './styles/main';
-@import './styles/styleguide';
 
 html, body {
   background: #ddd;
