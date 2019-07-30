@@ -78,7 +78,7 @@
         display: none;
       }
 
-      &:not(.#{$breakpoint}-hidden) {
+      &:not(.#{$breakpoint}-hdn) {
         display: flex;
       }
 
