@@ -12,6 +12,23 @@
           [Main]
         </Flex>
       </Flex>
+      <Flex sm="hidden">current breakpoint: xs</Flex>
+      <Flex md="hidden">current breakpoint: sm</Flex>
+      <Flex lg="hidden">current breakpoint: md</Flex>
+      <Flex xl="hidden">current breakpoint: lg</Flex>
+      <Flex >current breakpoint: xl</Flex>
+      <Flex xs="col,hidden" md="hidden" xl="hidden" debug>
+        [show on sm and lg]
+      </Flex>
+      <Flex xs="col" sm="hidden" lg="hidden" debug>
+        [show on xs and md and xl]
+      </Flex>
+      <Flex xs="col,gutter" sm="gutter" lg="gutter" debug>
+        [gutter on xs and sm and lg]
+      </Flex>
+      <Flex xs="col" md="gutter" debug>
+        [gutter on md]
+      </Flex>
     </Flex>
     <Guides />
   </div>

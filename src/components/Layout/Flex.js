@@ -10,9 +10,6 @@ const generateBreakpoints = (name, limit, condition) => {
     conditionArray = condition.replace(' ', '').split(',');
   }
 
-  // eslint-disable-next-line no-console
-  console.info(conditionArray, typeof condition);
-
   const result = {};
   for (let i = 1; i <= limit; i++) {
     result[`${name}-${i}`] = conditionArray && parseInt(conditionArray[0]) === i;
