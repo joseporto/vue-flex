@@ -1,9 +1,9 @@
 .flex {
   box-sizing: border-box;
-  display: flex;
   padding: 0;
   margin: 0;
   &.container {
+    display: flex;
     flex-direction: column;
     position: relative;
     width: 100%;
@@ -26,11 +26,6 @@
     flex-shrink: 1;
     @mixin media-query($breakpoint) {
 
-      &.#{$breakpoint} {
-        flex-grow: 1;
-        flex-basis: 0;
-        max-width: 100%;
-      }
 
       @each $column in $var-columns-top {
         &.#{$breakpoint}-#{$column} {
@@ -55,7 +50,6 @@
         }
       }
 
-
       &.#{$breakpoint}-row {
         flex-direction: row;
         flex-wrap: wrap;
@@ -74,14 +68,21 @@
         }
       }
 
+      @each $break in $var-media-breakpoint-names{
+        @if $break != $breakpoint {
+          &:not(.#{$break}-hdn) {
+            display: flex;
+          }
+          &:not(.#{$breakpoint}-gtr) {
+            padding-left: 0;
+            padding-right: 0;
+          }
+        }
+      }
+
       &.#{$breakpoint}-hdn {
         display: none;
       }
-
-      &:not(.#{$breakpoint}-hdn) {
-        display: flex;
-      }
-
       &.#{$breakpoint}-gtr {
         padding-left: #{$layout-gutter/2}px;
         padding-right: #{$layout-gutter/2}px;
