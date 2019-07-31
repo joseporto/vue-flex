@@ -16,16 +16,16 @@ Take a look at how simple you can define a layout all the way from `xs` (mobile)
       Oh, great scott. You get the cable, I'll throw the rope down to you. Well maybe you are and you just don't know it yet. Go. Go. You're gonna break his arm. Biff, leave him alone. Let him go. Let him go. Okay, but I don't know what to say.<br />Well, uh, listen, uh, I really- Oh, what I meant to day was- Hey you, get your damn hands off, oh. What's going on? Where have you been all week? I will.<br /><br />Mayor Goldie Wilson, I like the sound of that. Uh, well, I gotta go. Marty, that's completely out of the question, you must not leave this house. you must not see anybody or talk to anybody. Anything you do could have serious reprocautions on future events. Do you understand? And where's my reports? Alright, I'm ready.</p>
     </Flex>
   </Flex>
-  <Flex xs="row">
+  <Flex xs="col">
     <Flex xs="row">
-      <Flex xs="12,col" sm="4">Links 1</Flex>
-      <Flex xs="12,col" sm="4">Links 2</Flex>
-      <Flex xs="12,col" sm="4,row,right">Form</Flex>
+      <Flex xs="12,col" md="3,1" lg="4,0">Links 1</Flex>
+      <Flex xs="12,col" md="4">Links 2</Flex>
+      <Flex xs="12,col" md="4,row,right">Form</Flex>
     </Flex>
     <Flex xs="row">
-      <Flex xs="12,col" sm="5,row,center">[placeholder]</Flex>
-      <Flex xs="hidden" sm="2,row,center">Logo</Flex>
-      <Flex xs="12,col" sm="5,right,row">[placeholder]</Flex>
+      <Flex xs="12,col" md="5,row,center">[placeholder]</Flex>
+      <Flex xs="hidden" md="2,row,center">Logo</Flex>
+      <Flex xs="12,col" md="5,right,row">[placeholder]</Flex>
     </Flex>
   </Flex>
 </Flex>

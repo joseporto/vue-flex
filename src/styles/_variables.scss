@@ -21,7 +21,7 @@ $var-breakpoints: (
 
 @function generate-list($value) {
 	$result: 0;
-	@for $i from 1 through $value {
+	@for $i from 0 through $value {
 		$result: append($result, $i);
 	}
 	@return $result
