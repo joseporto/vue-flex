@@ -11,7 +11,7 @@ const generateBreakpoints = (name, limit, condition) => {
   }
 
   const result = {};
-  for (let i = 1; i <= limit; i++) {
+  for (let i = 0; i <= limit; i++) {
     result[`${name}-${i}`] = conditionArray && parseInt(conditionArray[0]) === i;
     result[`${name}-sft-${i}`] = conditionArray && parseInt(conditionArray[1]) === i;
   }
@@ -115,8 +115,6 @@ export default {
       const {xs, sm, md, lg, xl} = this;
 
       const isContainer = xs === '' && sm === '' && md === '' && lg === '' && xl === '';
-      const isRow = this.row
-      const isColumn = this.col
 
       let classes = {
         flex: true
@@ -142,17 +140,6 @@ export default {
         debug: this.debug,
       })
 
-      if (isRow) {
-        classes = Object.assign(classes, {
-          row: true,
-        })
-      }
-
-      if (isColumn) {
-        classes = Object.assign(classes, {
-          col: true,
-        });
-      }
       return classes
     },
   },
