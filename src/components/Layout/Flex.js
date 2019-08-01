@@ -2,10 +2,7 @@ const generateBreakpoints = (name, limit, condition) => {
 
   let conditionArray = [];
 
-  // eslint-disable-next-line no-console
-  console.log(typeof condition);
-
-  if (typeof condition === 'object') {
+  if (Array.isArray('object')) {
     conditionArray = condition;
   } else if(typeof condition === 'string') {
     conditionArray = condition.replace(' ', '').split(',');
@@ -17,28 +14,28 @@ const generateBreakpoints = (name, limit, condition) => {
     result[`${name}-sft-${i}`] = conditionArray && parseInt(conditionArray[1]) === i;
   }
 
-  result[`${name}-row`] = condition.indexOf('row') !== -1;
-  result[`${name}-col`] = condition.indexOf('col') !== -1;
-  result[`${name}-al-stch`] = condition.indexOf('stretch') !== -1;
-  result[`${name}-al-top`] = condition.indexOf('top') !== -1;
-  result[`${name}-al-bot`] = condition.indexOf('bottom') !== -1;
-  result[`${name}-al-mid`] = condition.indexOf('middle') !== -1;
-  result[`${name}-al-bse`] = condition.indexOf('baseline') !== -1;
-  result[`${name}-jf-lft`] = condition.indexOf('left') !== -1;
-  result[`${name}-jf-rgt`] = condition.indexOf('right') !== -1;
-  result[`${name}-jf-ctr`] = condition.indexOf('center') !== -1;
-  result[`${name}-jf-bet`] = condition.indexOf('between') !== -1;
-  result[`${name}-jf-aro`] = condition.indexOf('around') !== -1;
-  result[`${name}-jf-evl`] = condition.indexOf('evenly') !== -1;
-  result[`${name}-jf-ini`] = condition.indexOf('initial') !== -1;
-  result[`${name}-jf-inh`] = condition.indexOf('inherit') !== -1;
-  result[`${name}-fst`] = condition.indexOf('first') !== -1;
-  result[`${name}-lst`] = condition.indexOf('last') !== -1;
-  result[`${name}-gtr`] = condition.indexOf('gutter') !== -1;
-  result[`${name}-nwp`] = condition.indexOf('nowrap') !== -1;
-  result[`${name}-gro`] = condition.indexOf('grow') !== -1;
-  result[`${name}-rvs`] = condition.indexOf('reverse') !== -1;
-  result[`${name}-hdn`] = condition.indexOf('hidden') !== -1;
+  result[`${name}-row`] = conditionArray.indexOf('row') !== -1;
+  result[`${name}-col`] = conditionArray.indexOf('col') !== -1;
+  result[`${name}-al-stch`] = conditionArray.indexOf('stretch') !== -1;
+  result[`${name}-al-top`] = conditionArray.indexOf('top') !== -1;
+  result[`${name}-al-bot`] = conditionArray.indexOf('bottom') !== -1;
+  result[`${name}-al-mid`] = conditionArray.indexOf('middle') !== -1;
+  result[`${name}-al-bse`] = conditionArray.indexOf('baseline') !== -1;
+  result[`${name}-jf-lft`] = conditionArray.indexOf('left') !== -1;
+  result[`${name}-jf-rgt`] = conditionArray.indexOf('right') !== -1;
+  result[`${name}-jf-ctr`] = conditionArray.indexOf('center') !== -1;
+  result[`${name}-jf-bet`] = conditionArray.indexOf('between') !== -1;
+  result[`${name}-jf-aro`] = conditionArray.indexOf('around') !== -1;
+  result[`${name}-jf-evl`] = conditionArray.indexOf('evenly') !== -1;
+  result[`${name}-jf-ini`] = conditionArray.indexOf('initial') !== -1;
+  result[`${name}-jf-inh`] = conditionArray.indexOf('inherit') !== -1;
+  result[`${name}-fst`] = conditionArray.indexOf('first') !== -1;
+  result[`${name}-lst`] = conditionArray.indexOf('last') !== -1;
+  result[`${name}-gtr`] = conditionArray.indexOf('gutter') !== -1;
+  result[`${name}-nwp`] = conditionArray.indexOf('nowrap') !== -1;
+  result[`${name}-gro`] = conditionArray.indexOf('grow') !== -1;
+  result[`${name}-rvs`] = conditionArray.indexOf('reverse') !== -1;
+  result[`${name}-hdn`] = conditionArray.indexOf('hidden') !== -1;
   return result
 }
 
