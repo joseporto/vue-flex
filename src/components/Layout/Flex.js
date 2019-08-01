@@ -34,6 +34,7 @@ const generateBreakpoints = (name, limit, condition) => {
   result[`${name}-gtr`] = conditionArray.indexOf('gutter') !== -1;
   result[`${name}-nwp`] = conditionArray.indexOf('nowrap') !== -1;
   result[`${name}-gro`] = conditionArray.indexOf('grow') !== -1;
+  result[`${name}-snk`] = conditionArray.indexOf('shrink') !== -1;
   result[`${name}-rvs`] = conditionArray.indexOf('reverse') !== -1;
   result[`${name}-hdn`] = conditionArray.indexOf('hidden') !== -1;
   return result

@@ -22,8 +22,6 @@
     }
   }
   &:not(.container) {
-    flex-grow: 1;
-    flex-shrink: 1;
     @mixin media-query($breakpoint) {
 
 
@@ -129,6 +127,9 @@
       }
       &.#{$breakpoint}-gro {
         flex-grow: 1;
+      }
+      &.#{$breakpoint}-snk {
+        flex-shrink: 1;
       }
       &.#{$breakpoint}-nwp {
         flex-wrap: nowrap;

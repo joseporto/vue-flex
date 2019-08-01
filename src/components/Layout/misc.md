@@ -17,7 +17,7 @@
           <Flex xs="5,col,gutter">
             <Flex>
               <Flex xs="row">
-                <Flex xs="true,col,gutter" />
+                <Flex xs="col,grow,gutter" />
               </Flex>
             </Flex>
           </Flex>
@@ -47,8 +47,8 @@
 ```vue
 <Flex>
   <Flex xs="row">
-    <Flex xs="col" />
-    <Flex xs="col,hidden" sm="col" />
+    <Flex xs="col,grow" />
+    <Flex xs="col,grow,hidden" sm="col" />
   </Flex>
 </Flex>
 ```

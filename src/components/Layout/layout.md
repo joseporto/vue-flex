@@ -14,6 +14,7 @@ Each breakpoint attribute, (`xs`, `sm`, `md`, `lg` `xl`) can have the following 
 | hidden    | any      | prevents content from being displayed                  | string  | hidden  |
 | nowrap    | any      | prevents content wrapping                              | string  | nowrap  |
 | grow      | any      | force element to use all available space               | string  | grow    |
+| shrink    | any      | force element to not use all available space           | string  | shrink  |
 | first     | any      | force element to be rendered first                     | string  | first   |
 | last      | any      | force element to be rendered first                     | string  | last    |
 
@@ -137,13 +138,13 @@ Shift a column by breakpoint with.
 ```vue
 <Flex>
   <Flex xs="row">
-    <Flex xs="col" />
-    <Flex xs="col" />
+    <Flex xs="col,grow" />
+    <Flex xs="col,grow" />
   </Flex>
   <Flex xs="row">
-    <Flex xs="col" />
-    <Flex xs="col" />
-    <Flex xs="col" />
+    <Flex xs="col,grow" />
+    <Flex xs="col,grow" />
+    <Flex xs="col,grow" />
   </Flex>
 </Flex>
 ```
