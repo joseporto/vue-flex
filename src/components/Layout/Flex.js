@@ -1,10 +1,11 @@
-import { isArray } from 'util';
-
 const generateBreakpoints = (name, limit, condition) => {
 
   let conditionArray = [];
 
-  if (isArray(condition)) {
+  // eslint-disable-next-line no-console
+  console.log(typeof condition);
+
+  if (typeof condition === 'object') {
     conditionArray = condition;
   } else if(typeof condition === 'string') {
     conditionArray = condition.replace(' ', '').split(',');
@@ -56,35 +57,35 @@ export default {
      * number of columns and optional shift at breakpoint `xs`
      */
     xs: {
-      type: Array | String,
+      type: String | Array,
       default: ''
     },
     /**
      * number of columns and optional shift at breakpoint `sm`
      */
     sm: {
-      type: Array | String,
+      type: String | Array,
       default: ''
     },
     /**
      * number of columns and optional shift at breakpoint `md`
      */
     md: {
-      type: Array | String,
+      type: String | Array,
       default: ''
     },
     /**
      * number of columns and optional shift at breakpoint `lg`
      */
     lg: {
-      type: Array | String,
+      type: String | Array,
       default: ''
     },
     /**
      * number of columns and optional shift at breakpoint `xl`
      */
     xl: {
-      type: Array | String,
+      type: String | Array,
       default: ''
     },
     /**
