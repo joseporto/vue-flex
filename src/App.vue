@@ -4,7 +4,7 @@
       <Flex xs="row,gutter" debug>
         <img alt="logo" src="./assets/logo.svg" height="128"> [Header]
       </Flex>
-      <Flex xs="col,gutter" md="row" debug>
+      <Flex xs="col,gutter,grow*" md="row" debug>
         <Flex xs="12,col" md="3">
           [Navigation]
         </Flex>
@@ -46,6 +46,7 @@ export default {
 html, body {
   background: #ddd;
   color: #111;
+  height: 100%;
 }
 
 * {
@@ -58,7 +59,7 @@ html, body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin-top: 60px;
+  height: 100%;
   > img {
     margin-bottom: 60px;
   }
