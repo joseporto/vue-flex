@@ -15,7 +15,6 @@ $color-col: #0FA3B1;
   background:#fff;
   border: solid black;
   border-color: black;
-  float:left;
   &.container {
     background: $color-container;
     box-shadow: inset 10px 10px 5px 10px darken($color-container, 10%);

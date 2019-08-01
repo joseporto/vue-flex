@@ -22,7 +22,7 @@
     }
   }
   &:not(.container) {
-    @mixin media-query($breakpoint) {
+    @mixin general-media-query($breakpoint) {
 
 
       @each $column in $var-columns-top {
@@ -66,6 +66,29 @@
         }
       }
 
+      &.#{$breakpoint}-hdn-aws {
+        display: none;
+      }
+      &.#{$breakpoint}-gtr-aws {
+        padding-left: #{$layout-gutter/2}px;
+        padding-right: #{$layout-gutter/2}px;
+      }
+      &.#{$breakpoint}-gro-aws {
+        flex-grow: 1;
+      }
+      &.#{$breakpoint}-snk-aws {
+        flex-shrink: 1;
+      }
+      &.#{$breakpoint}-nwp-aws {
+        flex-wrap: nowrap;
+      }
+      &.#{$breakpoint}-fst-aws {
+        order: -1;
+      }
+      &.#{$breakpoint}-lst-aws {
+        order: 1;
+      }
+
       @each $break in $var-media-breakpoint-names{
         @if $break != $breakpoint {
           &:not(.#{$break}-hdn) {
@@ -76,14 +99,6 @@
             padding-right: 0;
           }
         }
-      }
-
-      &.#{$breakpoint}-hdn {
-        display: none;
-      }
-      &.#{$breakpoint}-gtr {
-        padding-left: #{$layout-gutter/2}px;
-        padding-right: #{$layout-gutter/2}px;
       }
 
       &.#{$breakpoint}-al-stch {
@@ -125,6 +140,17 @@
       &.#{$breakpoint}-jf-inh {
         justify-content: inherit;
       }
+    }
+
+    @mixin special-media-query($breakpoint) {
+
+      &.#{$breakpoint}-hdn {
+        display: none;
+      }
+      &.#{$breakpoint}-gtr {
+        padding-left: #{$layout-gutter/2}px;
+        padding-right: #{$layout-gutter/2}px;
+      }
       &.#{$breakpoint}-gro {
         flex-grow: 1;
       }
@@ -140,14 +166,19 @@
       &.#{$breakpoint}-lst {
         order: 1;
       }
-    }
 
-    @include media-query(xs);
+    }
 
     @each $breakpoint in $var-media-breakpoint-names{
       @media only screen and (min-width: #{map-get($var-breakpoints, $breakpoint)}px) {
-        @include media-query($breakpoint);
+        @include general-media-query($breakpoint);
       }
     }
+
+    @media only screen and (min-width: #{map-get($var-breakpoints, xs)}px) and (min-width: #{map-get($var-breakpoints, sm)}px) { @include special-media-query(xs); }
+    @media only screen and (min-width: #{map-get($var-breakpoints, sm)}px) and (min-width: #{map-get($var-breakpoints, md)}px) { @include special-media-query(sm); }
+    @media only screen and (min-width: #{map-get($var-breakpoints, md)}px) and (min-width: #{map-get($var-breakpoints, lg)}px) { @include special-media-query(md); }
+    @media only screen and (min-width: #{map-get($var-breakpoints, lg)}px) and (min-width: #{map-get($var-breakpoints, xl)}px) { @include special-media-query(lg); }
+    @media only screen and (min-width: #{map-get($var-breakpoints, xl)}px) { @include special-media-query(xl); }
   }
 }

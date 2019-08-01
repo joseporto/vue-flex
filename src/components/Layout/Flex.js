@@ -29,14 +29,21 @@ const generateBreakpoints = (name, limit, condition) => {
   result[`${name}-jf-evl`] = conditionArray.indexOf('evenly') !== -1;
   result[`${name}-jf-ini`] = conditionArray.indexOf('initial') !== -1;
   result[`${name}-jf-inh`] = conditionArray.indexOf('inherit') !== -1;
-  result[`${name}-fst`] = conditionArray.indexOf('first') !== -1;
-  result[`${name}-lst`] = conditionArray.indexOf('last') !== -1;
+  result[`${name}-rvs-aws`] = conditionArray.indexOf('reverse*') !== -1;
+  result[`${name}-hdn-aws`] = conditionArray.indexOf('hidden*') !== -1;
+  result[`${name}-gtr-aws`] = conditionArray.indexOf('gutter*') !== -1;
+  result[`${name}-gro-aws`] = conditionArray.indexOf('grow*') !== -1;
+  result[`${name}-snk-aws`] = conditionArray.indexOf('shrink*') !== -1;
+  result[`${name}-nwp-aws`] = conditionArray.indexOf('nowrap*') !== -1;
+  result[`${name}-fst-aws`] = conditionArray.indexOf('first*') !== -1;
+  result[`${name}-lst-aws`] = conditionArray.indexOf('last*') !== -1;
+  result[`${name}-hdn`] = conditionArray.indexOf('hidden') !== -1;
   result[`${name}-gtr`] = conditionArray.indexOf('gutter') !== -1;
-  result[`${name}-nwp`] = conditionArray.indexOf('nowrap') !== -1;
   result[`${name}-gro`] = conditionArray.indexOf('grow') !== -1;
   result[`${name}-snk`] = conditionArray.indexOf('shrink') !== -1;
-  result[`${name}-rvs`] = conditionArray.indexOf('reverse') !== -1;
-  result[`${name}-hdn`] = conditionArray.indexOf('hidden') !== -1;
+  result[`${name}-nwp`] = conditionArray.indexOf('nowrap') !== -1;
+  result[`${name}-fst`] = conditionArray.indexOf('first') !== -1;
+  result[`${name}-lst`] = conditionArray.indexOf('last') !== -1;
   return result
 }
 

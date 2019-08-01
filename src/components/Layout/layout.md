@@ -138,13 +138,13 @@ Shift a column by breakpoint with.
 ```vue
 <Flex>
   <Flex xs="row">
-    <Flex xs="col,grow" />
-    <Flex xs="col,grow" />
+    <Flex xs="col,grow*" />
+    <Flex xs="col,grow*" />
   </Flex>
   <Flex xs="row">
-    <Flex xs="col,grow" />
-    <Flex xs="col,grow" />
-    <Flex xs="col,grow" />
+    <Flex xs="col,grow*" />
+    <Flex xs="col,grow*" />
+    <Flex xs="col,grow*" />
   </Flex>
 </Flex>
 ```

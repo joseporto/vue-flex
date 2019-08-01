@@ -10,7 +10,7 @@ $layout-color-guide-column: transparentize(#F06925, .2) !default;
 $layout-color-guide-gutter: transparentize(#0071BD, .9) !default;
 $layout-guides-zindex: 2147483647 !default;
 
-$var-media-breakpoint-names: sm, md, lg, xl;
+$var-media-breakpoint-names: xs, sm, md, lg, xl;
 $var-breakpoints: (
   "xs": 320,
   "sm": 576,
