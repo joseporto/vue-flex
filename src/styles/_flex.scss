@@ -5,7 +5,6 @@
 }
 .flex {
   @include defaults-root-styles;
-  box-sizing: border-box;
   margin: 0;
   &__container {
     @include defaults-root-styles;
@@ -27,9 +26,7 @@
     }
   }
 
-  @each $breakpoint in $var-media-breakpoint-names{
-    @include general-media-query(ps);
-  }
+  @include general-media-query(ps);
 
   @each $breakpoint in $var-media-breakpoint-names{
     @media only screen and (min-width: #{map-get($var-breakpoints, $breakpoint)}px) {
