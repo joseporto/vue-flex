@@ -48,7 +48,7 @@
 <Flex>
   <Flex xs="row">
     <Flex xs="col,grow" />
-    <Flex xs="col,grow,hidden" sm="col" />
+    <Flex md="col,grow,hidden" lg="col" />
   </Flex>
 </Flex>
 ```
