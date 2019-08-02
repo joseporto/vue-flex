@@ -169,16 +169,17 @@
 
     }
 
+    @media only screen and (min-width: #{map-get($var-breakpoints, xs)}px) and (min-width: #{map-get($var-breakpoints, sm)}px) { @include special-media-query(xs); }
+    @media only screen and (min-width: #{map-get($var-breakpoints, sm)}px) and (min-width: #{map-get($var-breakpoints, md)}px) { @include special-media-query(sm); }
+    @media only screen and (min-width: #{map-get($var-breakpoints, md)}px) and (min-width: #{map-get($var-breakpoints, lg)}px) { @include special-media-query(md); }
+    @media only screen and (min-width: #{map-get($var-breakpoints, lg)}px) and (min-width: #{map-get($var-breakpoints, xl)}px) { @include special-media-query(lg); }
+    @media only screen and (min-width: #{map-get($var-breakpoints, xl)}px) { @include special-media-query(xl); }
+
     @each $breakpoint in $var-media-breakpoint-names{
       @media only screen and (min-width: #{map-get($var-breakpoints, $breakpoint)}px) {
         @include general-media-query($breakpoint);
       }
     }
 
-    @media only screen and (min-width: #{map-get($var-breakpoints, xs)}px) and (min-width: #{map-get($var-breakpoints, sm)}px) { @include special-media-query(xs); }
-    @media only screen and (min-width: #{map-get($var-breakpoints, sm)}px) and (min-width: #{map-get($var-breakpoints, md)}px) { @include special-media-query(sm); }
-    @media only screen and (min-width: #{map-get($var-breakpoints, md)}px) and (min-width: #{map-get($var-breakpoints, lg)}px) { @include special-media-query(md); }
-    @media only screen and (min-width: #{map-get($var-breakpoints, lg)}px) and (min-width: #{map-get($var-breakpoints, xl)}px) { @include special-media-query(lg); }
-    @media only screen and (min-width: #{map-get($var-breakpoints, xl)}px) { @include special-media-query(xl); }
   }
 }
