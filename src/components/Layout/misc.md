@@ -2,36 +2,36 @@
 
 ```vue
 <Flex>
-  <Flex xs="row">
-    <Flex xs="7,col,gutter">
+  <Flex ps="row">
+    <Flex ps="7,col,gutter">
       <Flex>
-        <Flex xs="row">
-          <Flex xs="7,col,gutter">
+        <Flex ps="row">
+          <Flex ps="7,col,gutter">
             <Flex>
-              <Flex xs="row">
-                <Flex xs="4,col,gutter" />
-                <Flex xs="8,col,gutter" />
+              <Flex ps="row">
+                <Flex ps="4,col,gutter" />
+                <Flex ps="8,col,gutter" />
               </Flex>
             </Flex>
           </Flex>
-          <Flex xs="5,col,gutter">
+          <Flex ps="5,col,gutter">
             <Flex>
-              <Flex xs="row">
-                <Flex xs="col,grow,gutter" />
+              <Flex ps="row">
+                <Flex ps="col,grow,gutter" />
               </Flex>
             </Flex>
           </Flex>
         </Flex>
       </Flex>
     </Flex>
-    <Flex xs="5,col,gutter">
+    <Flex ps="5,col,gutter">
       <Flex>
-        <Flex xs="row">
-          <Flex xs="12,col,gutter">
+        <Flex ps="row">
+          <Flex ps="12,col,gutter">
             <Flex>
-              <Flex xs="row">
-                <Flex xs="6,col,gutter" />
-                <Flex xs="6,col,gutter" />
+              <Flex ps="row">
+                <Flex ps="6,col,gutter" />
+                <Flex ps="6,col,gutter" />
               </Flex>
             </Flex>
           </Flex>
@@ -46,9 +46,13 @@
 
 ```vue
 <Flex>
-  <Flex xs="row">
-    <Flex xs="col,grow" />
-    <Flex md="col,grow,hidden" lg="col" />
+  <Flex ps="row">
+    <Flex ps="col,grow" />
+    <Flex ps="col,grow,hidden" ts="col,visible" />
   </Flex>
 </Flex>
 ```
+
+## default breakpoints geometry
+
+![logo](https://gitlab.com/porto/vue-flex/raw/master/src/assets/schematic.svg)

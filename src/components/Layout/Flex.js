@@ -29,15 +29,8 @@ const generateBreakpoints = (name, limit, condition) => {
   result[`${name}-jf-evl`] = conditionArray.indexOf('evenly') !== -1;
   result[`${name}-jf-ini`] = conditionArray.indexOf('initial') !== -1;
   result[`${name}-jf-inh`] = conditionArray.indexOf('inherit') !== -1;
-  result[`${name}-rvs-aws`] = conditionArray.indexOf('reverse*') !== -1;
-  result[`${name}-hdn-aws`] = conditionArray.indexOf('hidden*') !== -1;
-  result[`${name}-gtr-aws`] = conditionArray.indexOf('gutter*') !== -1;
-  result[`${name}-gro-aws`] = conditionArray.indexOf('grow*') !== -1;
-  result[`${name}-snk-aws`] = conditionArray.indexOf('shrink*') !== -1;
-  result[`${name}-nwp-aws`] = conditionArray.indexOf('nowrap*') !== -1;
-  result[`${name}-fst-aws`] = conditionArray.indexOf('first*') !== -1;
-  result[`${name}-lst-aws`] = conditionArray.indexOf('last*') !== -1;
   result[`${name}-hdn`] = conditionArray.indexOf('hidden') !== -1;
+  result[`${name}-vsb`] = conditionArray.indexOf('visible') !== -1;
   result[`${name}-gtr`] = conditionArray.indexOf('gutter') !== -1;
   result[`${name}-gro`] = conditionArray.indexOf('grow') !== -1;
   result[`${name}-snk`] = conditionArray.indexOf('shrink') !== -1;
@@ -59,37 +52,51 @@ export default {
       default: 'div'
     },
     /**
-     * number of columns and optional shift at breakpoint `xs`
+     * number of columns shift at breakpoint `ps` phone small
      */
-    xs: {
+    ps: {
       type: String | Array,
       default: ''
     },
     /**
-     * number of columns and optional shift at breakpoint `sm`
+     * number of columns shift at breakpoint `pm` phone medium
      */
-    sm: {
+    pm: {
       type: String | Array,
       default: ''
     },
     /**
-     * number of columns and optional shift at breakpoint `md`
+     * number of columns shift at breakpoint `pl` phone large
      */
-    md: {
+    pl: {
       type: String | Array,
       default: ''
     },
     /**
-     * number of columns and optional shift at breakpoint `lg`
+     * number of columns shift at breakpoint `ts` tablet small
      */
-    lg: {
+    ts: {
       type: String | Array,
       default: ''
     },
     /**
-     * number of columns and optional shift at breakpoint `xl`
+     * number of columns shift at breakpoint `tw` tablet wide
      */
-    xl: {
+    tw: {
+      type: String | Array,
+      default: ''
+    },
+    /**
+     * number of columns shift at breakpoint `ds` desktop small
+     */
+    ds: {
+      type: String | Array,
+      default: ''
+    },
+    /**
+     * number of columns shift at breakpoint `dw` desktop wide
+     */
+    dw: {
       type: String | Array,
       default: ''
     },
@@ -118,29 +125,26 @@ export default {
   computed: {
     classes() {
       // const isContainer = !this.row && !this.col
-      const {xs, sm, md, lg, xl} = this;
+      const {ps, pm, pl, ts, tw, ds, dw} = this;
 
-      const isContainer = xs === '' && sm === '' && md === '' && lg === '' && xl === '';
+      const isContainer = ps === '' && pm === '' && pl === '' && ts === '' && tw === '' && ds === '' && dw === '';
 
-      let classes = {
-        flex: true
-      }
-
-      if (isContainer) {
-        classes = Object.assign(classes, {
-          container: true,
+      let classes = isContainer
+        ? {
+          'flex__container': true,
           fluid: this.fluid,
           gutter: this.gutter,
-        })
-      } else {
-        classes = Object.assign(classes, {
-          ...generateBreakpoints('xs', 12, this.xs),
-          ...generateBreakpoints('sm', 12, this.sm),
-          ...generateBreakpoints('md', 12, this.md),
-          ...generateBreakpoints('lg', 12, this.lg),
-          ...generateBreakpoints('xl', 12, this.xl),
-        })
-      }
+        }
+        : {
+          flex: true,
+          ...generateBreakpoints('ps', 12, this.ps),
+          ...generateBreakpoints('pm', 12, this.pm),
+          ...generateBreakpoints('pl', 12, this.pl),
+          ...generateBreakpoints('ts', 12, this.ts),
+          ...generateBreakpoints('tw', 12, this.tw),
+          ...generateBreakpoints('ds', 12, this.ds),
+          ...generateBreakpoints('dw', 12, this.dw),
+        }
 
       Object.assign(classes, {
         debug: this.debug,

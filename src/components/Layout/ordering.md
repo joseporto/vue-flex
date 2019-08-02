@@ -12,23 +12,23 @@ Col (columns) are flex containers, that have the `flex-direction` set to `col`.
 
 ```vue
 <Flex>
-  <Flex xs="row,reverse">
-    <Flex xs="2,col,gutter,middle">
+  <Flex ps="row,reverse">
+    <Flex ps="2,col,gutter,middle">
       1
     </Flex>
-    <Flex xs="2,col,gutter,middle">
+    <Flex ps="2,col,gutter,middle">
       2
     </Flex>
-    <Flex xs="2,col,gutter,middle">
+    <Flex ps="2,col,gutter,middle">
       3
     </Flex>
-    <Flex xs="2,col,gutter,middle">
+    <Flex ps="2,col,gutter,middle">
       4
     </Flex>
-    <Flex xs="2,col,gutter,middle">
+    <Flex ps="2,col,gutter,middle">
       5
     </Flex>
-    <Flex xs="2,col,gutter,middle">
+    <Flex ps="2,col,gutter,middle">
       6
     </Flex>
   </Flex>
@@ -41,23 +41,23 @@ Col (columns) are flex containers, that have the `flex-direction` set to `col`.
 
 ```vue
 <Flex>
-  <Flex xs="row">
-    <Flex xs="2,col,middle,gutter">
+  <Flex ps="row">
+    <Flex ps="2,col,middle,gutter">
       1
     </Flex>
-    <Flex xs="2,col,middle,gutter">
+    <Flex ps="2,col,middle,gutter">
       2
     </Flex>
-    <Flex xs="2,col,middle,gutter">
+    <Flex ps="2,col,middle,gutter">
       3
     </Flex>
-    <Flex xs="2,col,middle,gutter">
+    <Flex ps="2,col,middle,gutter">
       4
     </Flex>
-    <Flex xs="2,col,middle,gutter">
+    <Flex ps="2,col,middle,gutter">
       5
     </Flex>
-    <Flex xs="2,col,middle,gutter,first" class="highlighted">
+    <Flex ps="2,col,middle,gutter,first" class="highlighted">
       6
     </Flex>
   </Flex>
@@ -68,23 +68,23 @@ Col (columns) are flex containers, that have the `flex-direction` set to `col`.
 
 ```vue
 <Flex>
-  <Flex xs="row">
-    <Flex xs="2,col,middle,gutter,last" class="highlighted">
+  <Flex ps="row">
+    <Flex ps="2,col,middle,gutter,last" class="highlighted">
       1
     </Flex>
-    <Flex xs="2,col,middle,gutter">
+    <Flex ps="2,col,middle,gutter">
       2
     </Flex>
-    <Flex xs="2,col,middle,gutter">
+    <Flex ps="2,col,middle,gutter">
       3
     </Flex>
-    <Flex xs="2,col,middle,gutter">
+    <Flex ps="2,col,middle,gutter">
       4
     </Flex>
-    <Flex xs="2,col,middle,gutter">
+    <Flex ps="2,col,middle,gutter">
       5
     </Flex>
-    <Flex xs="2,col,middle,gutter">
+    <Flex ps="2,col,middle,gutter">
       6
     </Flex>
   </Flex>
