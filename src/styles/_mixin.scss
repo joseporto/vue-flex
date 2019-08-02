@@ -7,25 +7,18 @@
     }
   }
 
-  &.#{$breakpoint}-sft-0 {
-    margin-left: 0;
-  }
-
   @each $column in $var-columns-bottom {
     &.#{$breakpoint}-sft-#{$column} {
       margin-left: calc((100% * #{$column}) / #{$layout-columns});
-    }
-    &.#{$breakpoint}-rvs.#{$breakpoint}-row {
-      flex-direction: row-reverse;
-    }
-    &.#{$breakpoint}-rvs.#{$breakpoint}-col {
-      flex-direction: column-reverse;
     }
   }
 
   &.#{$breakpoint}-row {
     flex-direction: row;
     flex-wrap: wrap;
+    &.#{$breakpoint}-rvs {
+      flex-direction: row-reverse;
+    }
     &.debug {
       background: transparentize($layout-color-debug-row, .8);
       border: dashed 1px transparentize($layout-color-debug-row, .6);
@@ -34,7 +27,9 @@
 
   &.#{$breakpoint}-col {
     flex-direction: column;
-
+    &.#{$breakpoint}-rvs {
+      flex-direction: column-reverse;
+    }
     &.debug {
       background: transparentize($layout-color-debug-column, .8);
       border: dashed 1px transparentize($layout-color-debug-column, .6);

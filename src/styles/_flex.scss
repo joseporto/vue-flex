@@ -5,7 +5,6 @@
 }
 .flex {
   @include defaults-root-styles;
-  box-sizing: border-box;
   margin: 0;
   &__container {
     @include defaults-root-styles;
