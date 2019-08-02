@@ -10,13 +10,15 @@ $layout-color-guide-column: transparentize(#F06925, .2) !default;
 $layout-color-guide-gutter: transparentize(#0071BD, .9) !default;
 $layout-guides-zindex: 2147483647 !default;
 
-$var-media-breakpoint-names: xs, sm, md, lg, xl;
+$var-media-breakpoint-names: pm, pl, ts, tw, ds, dw;
+
 $var-breakpoints: (
-  "xs": 320,
-  "sm": 576,
-  "md": 768,
-  "lg": 992,
-  "xl": 1200
+  "pm": 320,
+  "pl": 375,
+  "ts": 425,
+  "tw": 768,
+  "ds": 1024,
+  "dw": 1440
 ) !default;
 
 @function generate-list($value) {

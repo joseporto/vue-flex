@@ -1,9 +1,14 @@
-.flex {
+@mixin defaults-root-styles {
   box-sizing: border-box;
+  display: flex;
   padding: 0;
+}
+.flex {
+  @include defaults-root-styles;
+  box-sizing: border-box;
   margin: 0;
-  &.container {
-    display: flex;
+  &__container {
+    @include defaults-root-styles;
     flex-direction: column;
     position: relative;
     width: 100%;
@@ -21,165 +26,14 @@
       border: dashed 1px transparentize($layout-color-debug-container, .6);
     }
   }
-  &:not(.container) {
-    @mixin general-media-query($breakpoint) {
 
+  @each $breakpoint in $var-media-breakpoint-names{
+    @include general-media-query(ps);
+  }
 
-      @each $column in $var-columns-top {
-        &.#{$breakpoint}-#{$column} {
-          flex-basis: calc((100% * #{$column}) / #{$layout-columns});
-          max-width: calc((100% * #{$column}) / #{$layout-columns});
-        }
-      }
-
-      &.#{$breakpoint}-sft-0 {
-        margin-left: 0;
-      }
-
-      @each $column in $var-columns-bottom {
-        &.#{$breakpoint}-sft-#{$column} {
-          margin-left: calc((100% * #{$column}) / #{$layout-columns});
-        }
-        &.#{$breakpoint}-rvs.#{$breakpoint}-row {
-          flex-direction: row-reverse;
-        }
-        &.#{$breakpoint}-rvs.#{$breakpoint}-col {
-          flex-direction: column-reverse;
-        }
-      }
-
-      &.#{$breakpoint}-row {
-        flex-direction: row;
-        flex-wrap: wrap;
-        &.debug {
-          background: transparentize($layout-color-debug-row, .8);
-          border: dashed 1px transparentize($layout-color-debug-row, .6);
-        }
-      }
-
-      &.#{$breakpoint}-col {
-        flex-direction: column;
-
-        &.debug {
-          background: transparentize($layout-color-debug-column, .8);
-          border: dashed 1px transparentize($layout-color-debug-column, .6);
-        }
-      }
-
-      &.#{$breakpoint}-hdn-aws {
-        display: none;
-      }
-      &.#{$breakpoint}-gtr-aws {
-        padding-left: #{$layout-gutter/2}px;
-        padding-right: #{$layout-gutter/2}px;
-      }
-      &.#{$breakpoint}-gro-aws {
-        flex-grow: 1;
-      }
-      &.#{$breakpoint}-snk-aws {
-        flex-shrink: 1;
-      }
-      &.#{$breakpoint}-nwp-aws {
-        flex-wrap: nowrap;
-      }
-      &.#{$breakpoint}-fst-aws {
-        order: -1;
-      }
-      &.#{$breakpoint}-lst-aws {
-        order: 1;
-      }
-
-      @each $break in $var-media-breakpoint-names{
-        @if $break != $breakpoint {
-          &:not(.#{$break}-hdn) {
-            display: flex;
-          }
-          &:not(.#{$breakpoint}-gtr) {
-            padding-left: 0;
-            padding-right: 0;
-          }
-        }
-      }
-
-      &.#{$breakpoint}-al-stch {
-        align-items: stretch;
-      }
-      &.#{$breakpoint}-al-top {
-        align-items: flex-start;
-      }
-      &.#{$breakpoint}-al-bot {
-        align-items: flex-end;
-      }
-      &.#{$breakpoint}-al-mid {
-        align-items: center;
-      }
-      &.#{$breakpoint}-al-bse {
-        align-items: baseline;
-      }
-      &.#{$breakpoint}-jf-lft {
-        justify-content: flex-start;
-      }
-      &.#{$breakpoint}-jf-rgt {
-        justify-content: flex-end;
-      }
-      &.#{$breakpoint}-jf-ctr {
-        justify-content: center;
-      }
-      &.#{$breakpoint}-jf-bet {
-        justify-content: space-between;
-      }
-      &.#{$breakpoint}-jf-aro {
-        justify-content: space-around;
-      }
-      &.#{$breakpoint}-jf-evl {
-        justify-content: space-evenly;
-      }
-      &.#{$breakpoint}-jf-ini {
-        justify-content: initial;
-      }
-      &.#{$breakpoint}-jf-inh {
-        justify-content: inherit;
-      }
+  @each $breakpoint in $var-media-breakpoint-names{
+    @media only screen and (min-width: #{map-get($var-breakpoints, $breakpoint)}px) {
+      @include general-media-query($breakpoint);
     }
-
-    @mixin special-media-query($breakpoint) {
-
-      &.#{$breakpoint}-hdn {
-        display: none;
-      }
-      &.#{$breakpoint}-gtr {
-        padding-left: #{$layout-gutter/2}px;
-        padding-right: #{$layout-gutter/2}px;
-      }
-      &.#{$breakpoint}-gro {
-        flex-grow: 1;
-      }
-      &.#{$breakpoint}-snk {
-        flex-shrink: 1;
-      }
-      &.#{$breakpoint}-nwp {
-        flex-wrap: nowrap;
-      }
-      &.#{$breakpoint}-fst {
-        order: -1;
-      }
-      &.#{$breakpoint}-lst {
-        order: 1;
-      }
-
-    }
-
-    @media only screen and (min-width: #{map-get($var-breakpoints, xs)}px) and (min-width: #{map-get($var-breakpoints, sm)}px) { @include special-media-query(xs); }
-    @media only screen and (min-width: #{map-get($var-breakpoints, sm)}px) and (min-width: #{map-get($var-breakpoints, md)}px) { @include special-media-query(sm); }
-    @media only screen and (min-width: #{map-get($var-breakpoints, md)}px) and (min-width: #{map-get($var-breakpoints, lg)}px) { @include special-media-query(md); }
-    @media only screen and (min-width: #{map-get($var-breakpoints, lg)}px) and (min-width: #{map-get($var-breakpoints, xl)}px) { @include special-media-query(lg); }
-    @media only screen and (min-width: #{map-get($var-breakpoints, xl)}px) { @include special-media-query(xl); }
-
-    @each $breakpoint in $var-media-breakpoint-names{
-      @media only screen and (min-width: #{map-get($var-breakpoints, $breakpoint)}px) {
-        @include general-media-query($breakpoint);
-      }
-    }
-
   }
 }

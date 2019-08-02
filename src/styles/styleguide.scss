@@ -4,29 +4,32 @@ $color-container: #995db5;
 $color-row: #f7941f;
 $color-col: #0FA3B1;
 
-.flex {
+@mixin basics {
   border: 3px solid black;
   border-radius: 5px;
   color: white;
   font-family: sans-serif;
   font-size: 1.2em;
   padding: #{$layout-gutter}px;
+}
 
-  background:#fff;
-  border: solid black;
-  border-color: black;
-  &.container {
+.flex {
+  @include basics;
+  &__container {
+    @include basics;
     background: $color-container;
     box-shadow: inset 10px 10px 5px 10px darken($color-container, 10%);
     border-width: 4px 5px 4px 6px;
     border-radius:9% 4% 92% 5%/4% 5% 6% 5%;
     transform: rotate(1deg);
   }
-  &.xs-row,
-  &.sm-row,
-  &.md-row,
-  &.lg-row,
-  &.xl-row {
+  &.ps-row,
+  &.pm-row,
+  &.pl-row,
+  &.ts-row,
+  &.tw-row,
+  &.ds-row,
+  &.dw-row {
     background: $color-row;
     box-shadow: inset 10px 10px 5px 10px lighten($color-row, 10%);
     border-width: 3px 3px 5px 5px;
@@ -36,11 +39,13 @@ $color-col: #0FA3B1;
       min-height: 1rem;
     }
   }
-  &.xs-col,
-  &.sm-col,
-  &.md-col,
-  &.lg-col,
-  &.xl-col {
+  &.ps-col,
+  &.pm-col,
+  &.pl-col,
+  &.ts-col,
+  &.tw-col,
+  &.ds-col,
+  &.dw-col {
     background: $color-col;
     box-shadow: inset 5px 5px 5px 5px lighten($color-col, 10%);
     border-width: 5px 3px 3px 5px;

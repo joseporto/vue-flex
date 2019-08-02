@@ -1,6 +1,6 @@
-Layouts are defined starting with the `xs` attribute, and optionally filling in the remaining breakpoint attributes.
+Layouts are defined starting with the `ps` attribute, and optionally filling in the remaining breakpoint attributes.
 
-Each breakpoint attribute, (`xs`, `sm`, `md`, `lg` `xl`) can have the following parameters:
+Each breakpoint attribute, (`ps`, `pm`, `pl`, `ts`, `tw`, `ds`, `dw`) can have the following parameters:
 
 | attribute | position | description                                            | type    | example |
 |-----------|----------|--------------------------------------------------------|---------|---------|
@@ -12,6 +12,7 @@ Each breakpoint attribute, (`xs`, `sm`, `md`, `lg` `xl`) can have the following 
 | alignment | any      | defines the vertical alignment                         | string  | center  |
 | justify   | any      | defines the horizontal alignment                       | string  | middle  |
 | hidden    | any      | prevents content from being displayed                  | string  | hidden  |
+| visible   | any      | forces content to be displayed                         | string  | visible |
 | nowrap    | any      | prevents content wrapping                              | string  | nowrap  |
 | grow      | any      | force element to use all available space               | string  | grow    |
 | shrink    | any      | force element to not use all available space           | string  | shrink  |
@@ -35,22 +36,22 @@ Container will either respect the `maxWidth` setting, or utilize all of the avai
 
 ## Responsive
 
-Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at xs, sm, md, lg & xl viewport widths.
+Responsive modifiers enable specifying different column sizes, offsets, alignment and distribution at `ps`, `pm`, `pl`, `ts`, `tw`, `ds` and `dw` viewport widths.
 
 ```vue
 <Flex>
-  <Flex xs="row">
-    <Flex xs="12,col,gutter" sm="3" md="2" lg="1" />
-    <Flex xs="6,col,gutter" sm="6" md="8" lg="10" />
-    <Flex xs="6,col,gutter" sm="3" md="2" lg="1" />
+  <Flex ps="row">
+    <Flex ps="12,col,gutter" ts="3" ds="2" dw="1" />
+    <Flex ps="6,col,gutter" ts="6" ds="8" dw="10" />
+    <Flex ps="6,col,gutter" ts="3" ds="2" dw="1" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="12,col,gutter" sm="3" md="2" lg="1" />
-    <Flex xs="12,col,gutter" sm="9" md="10" lg="11" />
+  <Flex ps="row">
+    <Flex ps="12,col,gutter" ts="3" ds="2" dw="1" />
+    <Flex ps="12,col,gutter" ts="9" ds="10" dw="11" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="10,col,gutter" sm="6" md="8" lg="10" />
-    <Flex xs="2,col,gutter" sm="6" md="4" lg="2" />
+  <Flex ps="row">
+    <Flex ps="10,col,gutter" ts="6" ds="8" dw="10" />
+    <Flex ps="2,col,gutter" ts="6" ds="4" dw="2" />
   </Flex>
 </Flex>
 ```
@@ -61,32 +62,32 @@ Percent based widths allow fluid resizing of columns and rows.
 
 ```vue
 <Flex>
-  <Flex xs="row">
-    <Flex xs="12,col,gutter" />
+  <Flex ps="row">
+    <Flex ps="12,col,gutter" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="1,col,gutter" />
-    <Flex xs="11,col,gutter" />
+  <Flex ps="row">
+    <Flex ps="1,col,gutter" />
+    <Flex ps="11,col,gutter" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="2,col,gutter" />
-    <Flex xs="10,col,gutter" />
+  <Flex ps="row">
+    <Flex ps="2,col,gutter" />
+    <Flex ps="10,col,gutter" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="3,col,gutter" />
-    <Flex xs="9,col,gutter" />
+  <Flex ps="row">
+    <Flex ps="3,col,gutter" />
+    <Flex ps="9,col,gutter" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="4,col,gutter" />
-    <Flex xs="8,col,gutter" />
+  <Flex ps="row">
+    <Flex ps="4,col,gutter" />
+    <Flex ps="8,col,gutter" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="5,col,gutter" />
-    <Flex xs="7,col,gutter" />
+  <Flex ps="row">
+    <Flex ps="5,col,gutter" />
+    <Flex ps="7,col,gutter" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="6,col,gutter" />
-    <Flex xs="6,col,gutter" />
+  <Flex ps="row">
+    <Flex ps="6,col,gutter" />
+    <Flex ps="6,col,gutter" />
   </Flex>
 </Flex>
 ```
@@ -97,38 +98,38 @@ Shift a column by breakpoint with.
 
 ```vue
 <Flex>
-  <Flex xs="row">
-    <Flex xs="1,11,col" />
+  <Flex ps="row">
+    <Flex ps="1,11,col" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="2,10,col" />
+  <Flex ps="row">
+    <Flex ps="2,10,col" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="3,9,col" />
+  <Flex ps="row">
+    <Flex ps="3,9,col" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="4,8,col" />
+  <Flex ps="row">
+    <Flex ps="4,8,col" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="5,7,col" />
+  <Flex ps="row">
+    <Flex ps="5,7,col" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="6,6,col" />
+  <Flex ps="row">
+    <Flex ps="6,6,col" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="7,5,col" />
+  <Flex ps="row">
+    <Flex ps="7,5,col" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="8,4,col" />
+  <Flex ps="row">
+    <Flex ps="8,4,col" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="9,3,col" />
+  <Flex ps="row">
+    <Flex ps="9,3,col" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="10,2,col" />
+  <Flex ps="row">
+    <Flex ps="10,2,col" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="11,1,col" />
+  <Flex ps="row">
+    <Flex ps="11,1,col" />
   </Flex>
 </Flex>
 ```
@@ -137,14 +138,14 @@ Shift a column by breakpoint with.
 
 ```vue
 <Flex>
-  <Flex xs="row">
-    <Flex xs="col,grow*" />
-    <Flex xs="col,grow*" />
+  <Flex ps="row">
+    <Flex ps="col,grow" />
+    <Flex ps="col,grow" />
   </Flex>
-  <Flex xs="row">
-    <Flex xs="col,grow*" />
-    <Flex xs="col,grow*" />
-    <Flex xs="col,grow*" />
+  <Flex ps="row">
+    <Flex ps="col,grow" />
+    <Flex ps="col,grow" />
+    <Flex ps="col,grow" />
   </Flex>
 </Flex>
 ```

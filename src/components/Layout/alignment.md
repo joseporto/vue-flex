@@ -6,8 +6,8 @@ Add classes to align elements to the start or end of a row as well as the top, b
 
 ```vue
 <Flex>
-  <Flex xs="row,left">
-    <Flex xs="6,0,col">
+  <Flex ps="row,left">
+    <Flex ps="6,0,col">
     </Flex>
   </Flex>
 </Flex>
@@ -17,8 +17,8 @@ Add classes to align elements to the start or end of a row as well as the top, b
 
 ```vue
 <Flex>
-  <Flex xs="row,center">
-    <Flex xs="6,0,col">
+  <Flex ps="row,center">
+    <Flex ps="6,0,col">
     </Flex>
   </Flex>
 </Flex>
@@ -28,8 +28,8 @@ Add classes to align elements to the start or end of a row as well as the top, b
 
 ```vue
 <Flex>
-  <Flex xs="row,right">
-    <Flex xs="6,0,col">
+  <Flex ps="row,right">
+    <Flex ps="6,0,col">
     </Flex>
   </Flex>
 </Flex>
@@ -39,10 +39,10 @@ Add classes to align elements to the start or end of a row as well as the top, b
 
 ```vue
 <Flex>
-  <Flex xs="row,around">
-    <Flex xs="2,col" />
-    <Flex xs="2,col" />
-    <Flex xs="2,col" />
+  <Flex ps="row,around">
+    <Flex ps="2,col" />
+    <Flex ps="2,col" />
+    <Flex ps="2,col" />
   </Flex>
 </Flex>
 ```
@@ -51,10 +51,10 @@ Add classes to align elements to the start or end of a row as well as the top, b
 
 ```vue
 <Flex>
-  <Flex xs="row,between">
-    <Flex xs="2,col" />
-    <Flex xs="2,col" />
-    <Flex xs="2,col" />
+  <Flex ps="row,between">
+    <Flex ps="2,col" />
+    <Flex ps="2,col" />
+    <Flex ps="2,col" />
   </Flex>
 </Flex>
 ```
@@ -63,10 +63,10 @@ Add classes to align elements to the start or end of a row as well as the top, b
 
 ```vue
 <Flex>
-  <Flex xs="row,evenly">
-    <Flex xs="2,col" />
-    <Flex xs="2,col" />
-    <Flex xs="2,col" />
+  <Flex ps="row,evenly">
+    <Flex ps="2,col" />
+    <Flex ps="2,col" />
+    <Flex ps="2,col" />
   </Flex>
 </Flex>
 ```
@@ -77,9 +77,9 @@ Add classes to align elements to the start or end of a row as well as the top, b
 
 ```vue
 <Flex>
-  <Flex xs="row,top">
-    <Flex xs="6,col,gutter" class="large" />
-    <Flex xs="6,col,gutter" />
+  <Flex ps="row,top">
+    <Flex ps="6,col,gutter" class="large" />
+    <Flex ps="6,col,gutter" />
   </Flex>
 </Flex>
 ```
@@ -88,9 +88,9 @@ Add classes to align elements to the start or end of a row as well as the top, b
 
 ```vue
 <Flex>
-  <Flex xs="row,middle">
-    <Flex xs="6,col,gutter" class="large" />
-    <Flex xs="6,col,gutter" />
+  <Flex ps="row,middle">
+    <Flex ps="6,col,gutter" class="large" />
+    <Flex ps="6,col,gutter" />
   </Flex>
 </Flex>
 ```
@@ -99,9 +99,9 @@ Add classes to align elements to the start or end of a row as well as the top, b
 
 ```vue
 <Flex>
-  <Flex xs="row,bottom">
-    <Flex xs="6,col,gutter" class="large" />
-    <Flex xs="6,col,gutter" />
+  <Flex ps="row,bottom">
+    <Flex ps="6,col,gutter" class="large" />
+    <Flex ps="6,col,gutter" />
   </Flex>
 </Flex>
 ```

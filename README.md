@@ -39,7 +39,20 @@ import VueFlex from '@jporto/vue-flex'
 Vue.use(VueFlex)
 ```
 
-- import the styles
+#### import the styles
+
+- Add a similar object to configure the breakpoints, before importing the stylesheet
+
+```scss
+$var-breakpoints: (
+  "pm": 320,
+  "pl": 375,
+  "ts": 425,
+  "tw": 768,
+  "ds": 1024,
+  "dw": 1440
+);
+```
 
 ```scss
 @import '@jporto/vue-flex/dist/@jporto/main.scss';
