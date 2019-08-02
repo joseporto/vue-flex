@@ -26,9 +26,7 @@
     }
   }
 
-  @each $breakpoint in $var-media-breakpoint-names{
-    @include general-media-query(ps);
-  }
+  @include general-media-query(ps);
 
   @each $breakpoint in $var-media-breakpoint-names{
     @media only screen and (min-width: #{map-get($var-breakpoints, $breakpoint)}px) {
