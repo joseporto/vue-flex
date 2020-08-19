@@ -125,7 +125,7 @@ export default {
   computed: {
     classes() {
       // const isContainer = !this.row && !this.col
-      const {ps, pm, pl, ts, tw, ds, dw} = this;
+      const {dw, ds, tw, ts, pl, pm, ps} = this;
 
       const isContainer = ps === '' && pm === '' && pl === '' && ts === '' && tw === '' && ds === '' && dw === '';
 
