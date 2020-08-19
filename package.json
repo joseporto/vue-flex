@@ -17,7 +17,9 @@
     "lint:fix": "eslint --ext .js,.vue --fix 'src/components/**'",
     "lint:scripts": "eslint --ext .js,.vue src/components",
     "styleguide": "vue-cli-service styleguidist",
-    "styleguide:build": "vue-cli-service styleguidist:build && node-sass ./src/styles/main.scss -o ./styleguide/build/ && node-sass ./src/styles/styleguide.scss -o ./styleguide/build/ && replace '</head>' '<link rel=\"stylesheet\" type=\"text/css\" href=\"build/main.css\"><link rel=\"stylesheet\" type=\"text/css\" href=\"build/styleguide.css\"></head>' ./styleguide/index.html && node replace.js && rimraf ./styleguide/build"
+    "styleguide:build": "vue-cli-service styleguidist:build && node-sass ./src/styles/main.scss -o ./styleguide/build/ && node-sass ./src/styles/styleguide.scss -o ./styleguide/build/ && replace '</head>' '<link rel=\"stylesheet\" type=\"text/css\" href=\"build/main.css\"><link rel=\"stylesheet\" type=\"text/css\" href=\"build/styleguide.css\"></head>' ./styleguide/index.html && node replace.js && rimraf ./styleguide/build",
+    "release:tag": "semantic-delivery-gitlab --token $GITLAB_TOKEN",
+    "release": "yarn build && npm-deploy-git-tag --access public"
   },
   "main": "dist/@jporto/vue-flex.common.js",
   "unpkg": "dist/@jporto/vue-flex.umd.min.js",
@@ -26,15 +28,16 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@commitlint/cli": "^9.1.2",
-    "@commitlint/config-conventional": "^9.1.2",
-    "@hutson/semantic-delivery-gitlab": "^9.0.4",
+    "@hutson/semantic-delivery-gitlab": "^9.1.0",
     "@vue/cli-plugin-babel": "^4.5.4",
     "@vue/cli-plugin-eslint": "^4.5.4",
     "@vue/cli-service": "^4.5.4",
     "babel-eslint": "^10.0.1",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
     "eslint": "^7.7.0",
     "eslint-plugin-vue": "^6.2.2",
+    "husky": "^4.2.5",
     "node-sass": "^4.12.0",
     "prettier": "^2.0.5",
     "replace": "^1.1.0",
@@ -63,19 +66,23 @@
     "> 1%",
     "last 2 versions"
   ],
-  "_id": "@jporto/vue-flex@1.0.0",
   "bugs": {
     "url": "https://gitlab.com/porto/vue-flex/issues"
   },
   "engines": {
-    "node": ">= 8",
-    "npm": ">= 6"
+    "node": "12.x",
+    "yarn": "1.22.x"
   },
   "homepage": "https://gitlab.com/porto/vue-flex#readme",
   "husky": {
     "hooks": {
-      "pre-commit": "npm run test",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+      "pre-commit": "yarn lint && yarn test",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
     }
   },
   "keywords": [
@@ -89,12 +96,8 @@
     "responsive"
   ],
   "license": "MIT",
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://gitlab.com/porto/vue-flex.git"
-  },
-  "readme": "ERROR: No README data found!"
+  }
 }
