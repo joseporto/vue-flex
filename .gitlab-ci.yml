@@ -13,7 +13,7 @@ cache:
 unit:
   before_script:
     - yarn install --frozen-lockfile
-  image: node:8
+  image: node:12
   stage: test
   script:
     - yarn test
@@ -28,7 +28,7 @@ unit:
 tag:
   before_script:
     - yarn install --frozen-lockfile
-  image: node:8
+  image: node:12
   stage: release
   script:
     - yarn release:tag
@@ -42,7 +42,7 @@ tag:
 publish:
   before_script:
     - yarn install --frozen-lockfile
-  image: node:8
+  image: node:12
   stage: release
   script:
     - yarn release
@@ -55,7 +55,7 @@ publish:
 pages:
   before_script:
     - yarn install --frozen-lockfile
-  image: node:8
+  image: node:12
   stage: docs
   script:
     - yarn styleguide:build
