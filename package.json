@@ -28,6 +28,7 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
+    "@hutson/npm-deploy-git-tag": "^6.0.0",
     "@hutson/semantic-delivery-gitlab": "^9.1.0",
     "@vue/cli-plugin-babel": "^4.5.4",
     "@vue/cli-plugin-eslint": "^4.5.4",
