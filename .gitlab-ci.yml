@@ -6,53 +6,64 @@ stages:
   - release
   - docs
 
+cache:
+  paths:
+    - node_modules/
+
 unit:
-  image: node:8
+  before_script:
+    - yarn install --frozen-lockfile
+  image: node:12
   stage: test
   script:
-    - npm install
-    - npm run test
+    - yarn test
   artifacts:
     paths:
+    - node_modules/
     - coverage
     - report
-  only:
-  - develop
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "develop"'
 
 tag:
   before_script:
-    - npm install --frozen-lockfile
-  image: node:8
+    - yarn install --frozen-lockfile
+  image: node:12
   stage: release
   script:
-    - npx semantic-delivery-gitlab --token ${GITLAB_TOKEN}
+    - yarn release:tag
   artifacts:
     paths:
+    - node_modules/
     - dist
-  only:
-  - master
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
 
 publish:
   before_script:
-    - npm install --frozen-lockfile
-  image: node:8
+    - yarn install --frozen-lockfile
+  image: node:12
   stage: release
   script:
-    - npm run build-lib
-    - npx npm-publish-git-tag --access public
-  only:
-  - tags
+    - yarn release
+  artifacts:
+    paths:
+    - node_modules/
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
 
 pages:
-  image: node:8
+  before_script:
+    - yarn install --frozen-lockfile
+  image: node:12
   stage: docs
   script:
-    - npm install
-    - npm run styleguide:build
+    - yarn styleguide:build
     - rm -rf ./public
     - mv styleguide public
   artifacts:
     paths:
+    - node_modules/
     - public
-  only:
-  - master
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "master"'
